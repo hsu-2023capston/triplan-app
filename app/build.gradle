@@ -44,8 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //CA
-    implementation project(path: ':domain')
-    implementation project(path: ':data')
+
 
     //Lottie
     def lottie_version="5.2.0"
