@@ -1,13 +1,13 @@
-plugins {
-    id 'com.android.library'
+plugins{
+    id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
 
-android {
+android{
     namespace 'com.myosa.domain'
     compileSdk 32
 
-    defaultConfig {
+    defaultConfig{
         applicationId "com.myosa.domain"
         minSdk 26
         targetSdk 32
@@ -17,22 +17,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
+    buildTypes{
+        release{
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
+    compileOptions{
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
+    kotlinOptions{
         jvmTarget = '1.8'
     }
 }
 
-dependencies {
+dependencies{
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
