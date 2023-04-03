@@ -8,7 +8,7 @@ plugins{
 
 android{
     namespace 'com.myosa.triplan'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig{
         applicationId "com.myosa.triplan"
@@ -32,6 +32,12 @@ android{
     }
     kotlinOptions{
         jvmTarget = '1.8'
+    }
+    dataBinding{
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -83,9 +89,11 @@ dependencies{
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     //activity, fragment
-    def  activity_version = "1.7.0"
-    implementation "androidx.activity:activity-ktx:$activity_version"
-    implementation "androidx.fragment:fragment-ktx:$activity_version"
+    def activity_version = "1.6.1"
+    implementation("androidx.activity:activity-ktx:$activity_version")
+
+    def fragment_version = "1.5.6"
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
 
     // Glide
     def glide_version="4.12.0"
