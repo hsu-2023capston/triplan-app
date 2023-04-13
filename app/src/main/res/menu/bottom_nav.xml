@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tripHomeFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Home" />
+    <item
+        android:id="@+id/tripChatFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Chat" />
+    <item
+        android:id="@+id/tripArchiveFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Archive" />
+    <item
+        android:id="@+id/tripScheduleFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Schedule" />
+</menu>

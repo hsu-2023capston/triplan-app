@@ -21,11 +21,11 @@ abstract class BaseActivity<T: ViewDataBinding>(@LayoutRes val layoutRes: Int)
         binding.lifecycleOwner = this@BaseActivity
     }
 
-    /*protected fun showToast(msg: String) {
+    protected fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     protected fun loge(msg: String,tag:String = javaClass.simpleName, ){
         Log.e(tag, msg)
-    }*/
+    }
 }

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainHomeFragment">
+    <fragment
+        android:id="@+id/mainHomeFragment"
+        android:name="com.myosa.triplan.ui.fragment.MainHomeFragment"
+        tools:layout="@layout/fragment_main_home">
+        <action
+            android:id="@+id/action_mainHomeFragment_to_createGroupFragment"
+            app:destination="@id/createGroupFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_mainHomeFragment_to_joinGroupFragment"
+            app:destination="@id/joinGroupFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_mainHomeFragment_to_groupHomeFragment"
+            app:destination="@id/groupHomeFragment" />
+        <action
+            android:id="@+id/action_mainHomeFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.myosa.triplan.ui.fragment.CreateGroupFragment"
+        android:label="CreateGroupFragment"
+        tools:layout="@layout/fragment_create_group"
+        />
+    <fragment
+        android:id="@+id/joinGroupFragment"
+        android:name="com.myosa.triplan.ui.fragment.JoinGroupFragment"
+        android:label="fragment_join_group"
+        tools:layout="@layout/fragment_join_group" >
+        <action
+            android:id="@+id/action_joinGroupFragment_to_joinGroupPasswordFragment"
+            app:destination="@id/joinGroupPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTripFragment"
+        android:name="com.myosa.triplan.ui.fragment.CreateTripFragment"
+        android:label="CreateTripFragment" />
+    <fragment
+        android:id="@+id/editGroupFragment"
+        android:name="com.myosa.triplan.ui.fragment.EditGroupFragment"
+        android:label="EditGroupFragment" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.myosa.triplan.ui.fragment.EditProfileFragment"
+        android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/editTripFragment"
+        android:name="com.myosa.triplan.ui.fragment.EditTripFragment"
+        android:label="EditTripFragment" />
+    <fragment
+        android:id="@+id/groupHomeFragment"
+        android:name="com.myosa.triplan.ui.fragment.GroupHomeFragment"
+        android:label="GroupHomeFragment" >
+        <action
+            android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
+            app:destination="@id/editGroupFragment" />
+        <action
+            android:id="@+id/action_groupHomeFragment_to_tripHomeFragment"
+            app:destination="@id/tripHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinGroupPasswordFragment"
+        android:name="com.myosa.triplan.ui.fragment.JoinGroupPasswordFragment"
+        android:label="JoinGroupPasswordFragment" />
+    <fragment
+        android:id="@+id/tripHomeFragment"
+        android:name="com.myosa.triplan.ui.fragment.TripHomeFragment"
+        android:label="TripHomeFragment" />
+
+    <fragment
+        android:id="@+id/tripArchiveFragment"
+        android:name="com.myosa.triplan.ui.fragment.TripArchiveFragment"
+        android:label="TripArchiveFragment" />
+    <fragment
+        android:id="@+id/tripChatFragment"
+        android:name="com.myosa.triplan.ui.fragment.TripChatFragment"
+        android:label="TripChatFragment" />
+    <fragment
+        android:id="@+id/tripScheduleFragment"
+        android:name="com.myosa.triplan.ui.fragment.TripScheduleFragment"
+        android:label="TripScheduleFragment" />
+
+</navigation>

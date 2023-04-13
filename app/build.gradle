@@ -2,7 +2,8 @@ plugins{
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    //   id 'dagger.hilt.android.plugin'
+    //kotlin("android.extensions")
+    id 'dagger.hilt.android.plugin'
     //  id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -39,6 +40,10 @@ android{
     buildFeatures {
         viewBinding = true
     }
+    composeOptions {
+        kotlinCompilerVersion "1.5.31"
+        kotlinCompilerExtensionVersion "1.1.0-alpha04"
+    }
 }
 
 dependencies{
@@ -50,6 +55,9 @@ dependencies{
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.compose.material:material:1.1.0-alpha04'
+    implementation 'androidx.compose.ui:ui-tooling:1.1.0-alpha04'
 
     //CA
     implementation project(path: ':domain')
@@ -85,8 +93,15 @@ dependencies{
     //Dagger - Hilt
     implementation 'com.google.dagger:hilt-android:2.45'
     kapt 'com.google.dagger:hilt-compiler:2.45'
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.45'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.45'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.45'
+    kaptTest 'com.google.dagger:hilt-compiler:2.45'
 
     //activity, fragment
     def activity_version = "1.6.1"
