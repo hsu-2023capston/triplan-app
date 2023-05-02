@@ -23,6 +23,13 @@
     <string name="creategroup_create">생성하기</string>
     <string name="creategroup_image">그룹 대표 이미지</string>
 
+    <!--여행-->
+    <string name="home">홈</string>
+    <string name="chat">채팅</string>
+    <string name="archive">아카이브</string>
+    <string name="schedule">스케줄</string>
+    <string name="edit">수정</string>
+    <string name="delete">삭제</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
