@@ -11,8 +11,10 @@
         <include
             android:id="@+id/includedToolbar"
             layout="@layout/toolbar_trip"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            app:menu="@menu/toolbar_trip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView18"
