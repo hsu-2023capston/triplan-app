@@ -23,6 +23,20 @@
     <string name="creategroup_create">생성하기</string>
     <string name="creategroup_image">그룹 대표 이미지</string>
 
+    <!--그룹 수정-->
+    <string name="editgroup_msg">그룹 수정하기</string>
+    <string name="editgroup_edit">수정하기</string>
+
+    <!--그룹 참여-->
+    <string name="joingroup_msg">그룹 참여하기</string>
+    <string name="joingroup_join">참여하기</string>
+
+    <!--그룹 홈-->
+    <string name="grouphome_msg">%s의 최근 여행</string>
+    <string name="grouphome_all_trip">더보기 ></string>
+
+    <!--여행 생성-->
+    <string name="createtrip_msg">여행 생성하기</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -17,6 +17,9 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding>(R.layout.fr
             btnCgBack.setOnClickListener {
                 findNavController().popBackStack()
             }
+            btnCgCreate.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
     }
 

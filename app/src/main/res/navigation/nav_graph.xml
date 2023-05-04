@@ -48,50 +48,72 @@
     <fragment
         android:id="@+id/createTripFragment"
         android:name="com.myosa.triplan.ui.fragment.CreateTripFragment"
-        android:label="CreateTripFragment" />
+        android:label="CreateTripFragment"
+        tools:layout="@layout/fragment_create_trip"/>
     <fragment
         android:id="@+id/editGroupFragment"
         android:name="com.myosa.triplan.ui.fragment.EditGroupFragment"
-        android:label="EditGroupFragment" />
+        android:label="EditGroupFragment"
+        tools:layout="@layout/fragment_edit_group"/>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.myosa.triplan.ui.fragment.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"/>
     <fragment
         android:id="@+id/editTripFragment"
         android:name="com.myosa.triplan.ui.fragment.EditTripFragment"
-        android:label="EditTripFragment" />
+        android:label="EditTripFragment"
+        tools:layout="@layout/fragment_edit_trip"/>
     <fragment
         android:id="@+id/groupHomeFragment"
         android:name="com.myosa.triplan.ui.fragment.GroupHomeFragment"
-        android:label="GroupHomeFragment" >
+        android:label="GroupHomeFragment"
+        tools:layout="@layout/fragment_group_home">
         <action
             android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
             app:destination="@id/editGroupFragment" />
         <action
             android:id="@+id/action_groupHomeFragment_to_tripHomeFragment"
             app:destination="@id/tripHomeFragment" />
+        <action
+            android:id="@+id/action_groupHomeFragment_to_groupTripAllFragment"
+            app:destination="@id/groupTripAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/joinGroupPasswordFragment"
         android:name="com.myosa.triplan.ui.fragment.JoinGroupPasswordFragment"
-        android:label="JoinGroupPasswordFragment" />
+        android:label="JoinGroupPasswordFragment"
+        tools:layout="@layout/fragment_join_group_password">
+        <action
+            android:id="@+id/action_joinGroupPasswordFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/tripHomeFragment"
         android:name="com.myosa.triplan.ui.fragment.TripHomeFragment"
-        android:label="TripHomeFragment" />
+        android:label="TripHomeFragment"
+        tools:layout="@layout/fragment_trip_home"/>
 
     <fragment
         android:id="@+id/tripArchiveFragment"
         android:name="com.myosa.triplan.ui.fragment.TripArchiveFragment"
-        android:label="TripArchiveFragment" />
+        android:label="TripArchiveFragment"
+        tools:layout="@layout/fragment_trip_archive"/>
     <fragment
         android:id="@+id/tripChatFragment"
         android:name="com.myosa.triplan.ui.fragment.TripChatFragment"
-        android:label="TripChatFragment" />
+        android:label="TripChatFragment"
+        tools:layout="@layout/fragment_trip_chat"/>
     <fragment
         android:id="@+id/tripScheduleFragment"
         android:name="com.myosa.triplan.ui.fragment.TripScheduleFragment"
-        android:label="TripScheduleFragment" />
+        android:label="TripScheduleFragment"
+        tools:layout="@layout/fragment_trip_schedule"/>
+    <fragment
+        android:id="@+id/groupTripAllFragment"
+        android:name="com.myosa.triplan.ui.fragment.GroupTripAllFragment"
+        android:label="GroupTripAllFragment"
+        tools:layout="@layout/fragment_group_trip_all"/>
 
 </navigation>
