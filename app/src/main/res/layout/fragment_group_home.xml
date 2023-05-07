@@ -8,7 +8,6 @@
         android:padding="0dp"
         tools:context=".ui.fragment.GroupHomeFragment">
 
-        <!-- TODO: Update blank fragment layout -->
 
         <ImageView
             android:id="@+id/btn_groupCreate3"
@@ -42,7 +41,7 @@
             app:layout_constraintTop_toTopOf="@+id/btn_groupCreate3" />
 
         <ImageView
-            android:id="@+id/btn_jg_back2"
+            android:id="@+id/btn_gh_back"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="15dp"
@@ -66,9 +65,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/common_string"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_jg_back2"
-            app:layout_constraintStart_toEndOf="@+id/btn_jg_back2"
-            app:layout_constraintTop_toTopOf="@+id/btn_jg_back2" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_gh_back"
+            app:layout_constraintStart_toEndOf="@+id/btn_gh_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_gh_back" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline14"
