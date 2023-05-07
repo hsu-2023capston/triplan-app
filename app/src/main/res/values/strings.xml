@@ -37,6 +37,9 @@
 
     <!--여행 생성-->
     <string name="createtrip_msg">여행 생성하기</string>
+    <string name="createtrip_date">여행 날짜</string>
+    <string name="createtrip_people">참여 인원</string>
+    <string name="createtrip_image">여행 이미지</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
