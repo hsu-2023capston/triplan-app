@@ -9,21 +9,20 @@
         tools:context=".ui.fragment.TripHomeFragment">
 
         <include
-            android:id="@+id/includedToolbar"
+            android:id="@+id/tb_trip_home"
             layout="@layout/toolbar_trip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/iv_trip_home"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/example"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/includedToolbar"
+            app:layout_constraintTop_toBottomOf="@+id/tb_trip_home"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -36,10 +35,10 @@
             android:includeFontPadding="false"
             android:text="@string/participants"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_trip_home" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
+            android:id="@+id/rv_trip_participant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -54,17 +53,20 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            android:padding="4dp"
+            android:paddingTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView2">
+            app:layout_constraintTop_toBottomOf="@+id/rv_trip_participant">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/ib_trip_home_prev_day"
                 style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
                 app:srcCompat="@drawable/ic_back"
                 app:tint="@color/gray" />
 
@@ -74,6 +76,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_trip_home_day_count"
                     style="@style/tv_18_semibold_black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,6 +85,7 @@
                     android:text="Day 1" />
 
                 <TextView
+                    android:id="@+id/tv_trip_home_date"
                     style="@style/tv_14_regular_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,17 +95,19 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/ib_trip_home_next_day"
                 style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 app:srcCompat="@drawable/ic_next"
                 app:tint="@color/blue_200" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="409dp"
-            android:layout_height="292dp"
+            android:id="@+id/rv_trip_home_schedule"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/tripHomeFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"
-        android:enabled="true"/>
+        android:title="@string/home" />
     <item
         android:id="@+id/tripScheduleFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_schedule"
-        android:title="@string/schedule"
-        android:enabled="true"/>
+        android:title="@string/schedule" />
     <item
         android:id="@+id/tripChatFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_chat"
-        android:title="@string/chat"
-        android:enabled="true"/>
+        android:title="@string/chat" />
     <item
         android:id="@+id/tripArchiveFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_archive"
-        android:title="@string/archive"
-        android:enabled="true"/>
+        android:title="@string/archive" />
 </menu>

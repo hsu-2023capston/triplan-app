@@ -12,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.myosa.triplan.BaseFragment
 import com.myosa.triplan.R
 import com.myosa.triplan.databinding.FragmentTripHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TripHomeFragment :BaseFragment<FragmentTripHomeBinding>(R.layout.fragment_trip_home) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +23,10 @@ class TripHomeFragment :BaseFragment<FragmentTripHomeBinding>(R.layout.fragment_
 
     override fun initView() {
         binding.apply {
-            includedToolbar.tbTrip.setNavigationOnClickListener{
+            tbTripHome.tbTrip.setNavigationOnClickListener{
                 findNavController().popBackStack()
             }
-            includedToolbar.tbTrip.setOnMenuItemClickListener{when(it.itemId){
+            tbTripHome.tbTrip.setOnMenuItemClickListener{when(it.itemId){
                 R.id.edit_trip -> {
                     Toast.makeText(this@TripHomeFragment.context, "수정", Toast.LENGTH_SHORT).show()
                     true}
