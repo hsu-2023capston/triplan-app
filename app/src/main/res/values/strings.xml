@@ -23,6 +23,7 @@
     <string name="creategroup_create">생성하기</string>
     <string name="creategroup_image">그룹 대표 이미지</string>
 
+<<<<<<< HEAD
     <!--그룹 수정-->
     <string name="editgroup_msg">그룹 수정하기</string>
     <string name="editgroup_edit">수정하기</string>
@@ -40,6 +41,18 @@
     <string name="createtrip_date">여행 날짜</string>
     <string name="createtrip_people">참여 인원</string>
     <string name="createtrip_image">여행 이미지</string>
+=======
+    <!--여행-->
+    <string name="home">홈</string>
+    <string name="chat">채팅</string>
+    <string name="archive">아카이브</string>
+    <string name="schedule">스케줄</string>
+    <string name="edit">수정</string>
+    <string name="delete">삭제</string>
+    <!--여행 메인-->
+    <string name="participants">참여 인원</string>
+
+>>>>>>> feature/tripDesign
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
