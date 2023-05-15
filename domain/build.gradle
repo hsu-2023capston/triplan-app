@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.myosa.domain'
+    namespace 'com.capstone.domain'
     compileSdk 33
 
     defaultConfig {

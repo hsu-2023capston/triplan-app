@@ -9,11 +9,11 @@ plugins{
 }
 
 android{
-    namespace 'com.myosa.triplan'
+    namespace 'com.capstone.triplan'
     compileSdk 33
 
     defaultConfig{
-        applicationId "com.myosa.triplan"
+        applicationId "com.capstone.triplan"
         minSdk 26
         targetSdk 32
         versionCode 1

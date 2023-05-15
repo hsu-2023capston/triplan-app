@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/mainHomeFragment"
-        android:name="com.myosa.triplan.ui.fragment.MainHomeFragment"
+        android:name="com.capstone.triplan.ui.fragment.MainHomeFragment"
         tools:layout="@layout/fragment_main_home">
         <action
             android:id="@+id/action_mainHomeFragment_to_createGroupFragment"
@@ -32,13 +32,13 @@
     </fragment>
     <fragment
         android:id="@+id/createGroupFragment"
-        android:name="com.myosa.triplan.ui.fragment.CreateGroupFragment"
+        android:name="com.capstone.triplan.ui.fragment.CreateGroupFragment"
         android:label="CreateGroupFragment"
         tools:layout="@layout/fragment_create_group"
         />
     <fragment
         android:id="@+id/joinGroupFragment"
-        android:name="com.myosa.triplan.ui.fragment.JoinGroupFragment"
+        android:name="com.capstone.triplan.ui.fragment.JoinGroupFragment"
         android:label="fragment_join_group"
         tools:layout="@layout/fragment_join_group" >
         <action
@@ -47,27 +47,27 @@
     </fragment>
     <fragment
         android:id="@+id/createTripFragment"
-        android:name="com.myosa.triplan.ui.fragment.CreateTripFragment"
+        android:name="com.capstone.triplan.ui.fragment.CreateTripFragment"
         android:label="CreateTripFragment"
         tools:layout="@layout/fragment_create_trip"/>
     <fragment
         android:id="@+id/editGroupFragment"
-        android:name="com.myosa.triplan.ui.fragment.EditGroupFragment"
+        android:name="com.capstone.triplan.ui.fragment.EditGroupFragment"
         android:label="EditGroupFragment"
         tools:layout="@layout/fragment_edit_group"/>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.myosa.triplan.ui.fragment.EditProfileFragment"
+        android:name="com.capstone.triplan.ui.fragment.EditProfileFragment"
         android:label="EditProfileFragment"
         tools:layout="@layout/fragment_edit_profile"/>
     <fragment
         android:id="@+id/editTripFragment"
-        android:name="com.myosa.triplan.ui.fragment.EditTripFragment"
+        android:name="com.capstone.triplan.ui.fragment.EditTripFragment"
         android:label="EditTripFragment"
         tools:layout="@layout/fragment_edit_trip"/>
     <fragment
         android:id="@+id/groupHomeFragment"
-        android:name="com.myosa.triplan.ui.fragment.GroupHomeFragment"
+        android:name="com.capstone.triplan.ui.fragment.GroupHomeFragment"
         android:label="GroupHomeFragment"
         tools:layout="@layout/fragment_group_home">
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/joinGroupPasswordFragment"
-        android:name="com.myosa.triplan.ui.fragment.JoinGroupPasswordFragment"
+        android:name="com.capstone.triplan.ui.fragment.JoinGroupPasswordFragment"
         android:label="JoinGroupPasswordFragment"
         tools:layout="@layout/fragment_join_group_password">
         <action
@@ -91,33 +91,33 @@
     </fragment>
     <fragment
         android:id="@+id/tripHomeFragment"
-        android:name="com.myosa.triplan.ui.fragment.TripHomeFragment"
+        android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
         android:label="TripHomeFragment"
         tools:layout="@layout/fragment_trip_home"/>
 
     <fragment
         android:id="@+id/tripArchiveFragment"
-        android:name="com.myosa.triplan.ui.fragment.TripArchiveFragment"
+        android:name="com.capstone.triplan.ui.fragment.TripArchiveFragment"
         android:label="TripArchiveFragment"
         tools:layout="@layout/fragment_trip_archive"/>
     <fragment
         android:id="@+id/tripChatFragment"
-        android:name="com.myosa.triplan.ui.fragment.TripChatFragment"
+        android:name="com.capstone.triplan.ui.fragment.TripChatFragment"
         android:label="TripChatFragment"
         tools:layout="@layout/fragment_trip_chat"/>
     <fragment
         android:id="@+id/tripScheduleFragment"
-        android:name="com.myosa.triplan.ui.fragment.TripScheduleFragment"
+        android:name="com.capstone.triplan.ui.fragment.TripScheduleFragment"
         android:label="TripScheduleFragment"
         tools:layout="@layout/fragment_trip_schedule"/>
     <fragment
         android:id="@+id/groupTripAllFragment"
-        android:name="com.myosa.triplan.ui.fragment.GroupTripAllFragment"
+        android:name="com.capstone.triplan.ui.fragment.GroupTripAllFragment"
         android:label="GroupTripAllFragment"
         tools:layout="@layout/fragment_group_trip_all"/>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.myosa.triplan.ui.fragment.LoginFragment"
+        android:name="com.capstone.triplan.ui.fragment.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -129,7 +129,7 @@
     </fragment>
     <fragment
         android:id="@+id/initialSettingNameFragment"
-        android:name="com.myosa.triplan.ui.fragment.InitialSettingNameFragment"
+        android:name="com.capstone.triplan.ui.fragment.InitialSettingNameFragment"
         android:label="InitialSettingNameFragment"
         tools:layout="@layout/fragment_initial_setting_name">
         <action
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/initialSettingImageFragment"
-        android:name="com.myosa.triplan.ui.fragment.InitialSettingImageFragment"
+        android:name="com.capstone.triplan.ui.fragment.InitialSettingImageFragment"
         android:label="InitialSettingImageFragment"
         tools:layout="@layout/fragment_initial_setting_image">
         <action
