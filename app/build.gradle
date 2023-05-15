@@ -4,6 +4,7 @@ plugins{
     id 'kotlin-kapt'
     //kotlin("android.extensions")
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
     //  id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -124,7 +125,7 @@ dependencies{
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     //google auth
-    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     //material calendarView
     implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'

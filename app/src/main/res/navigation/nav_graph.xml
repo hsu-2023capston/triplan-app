@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainHomeFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/mainHomeFragment"
         android:name="com.myosa.triplan.ui.fragment.MainHomeFragment"
@@ -115,5 +115,35 @@
         android:name="com.myosa.triplan.ui.fragment.GroupTripAllFragment"
         android:label="GroupTripAllFragment"
         tools:layout="@layout/fragment_group_trip_all"/>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.myosa.triplan.ui.fragment.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_initialSettingNameFragment"
+            app:destination="@id/initialSettingNameFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/initialSettingNameFragment"
+        android:name="com.myosa.triplan.ui.fragment.InitialSettingNameFragment"
+        android:label="InitialSettingNameFragment"
+        tools:layout="@layout/fragment_initial_setting_name">
+        <action
+            android:id="@+id/action_initialSettingNameFragment_to_initialSettingImageFragment"
+            app:destination="@id/initialSettingImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/initialSettingImageFragment"
+        android:name="com.myosa.triplan.ui.fragment.InitialSettingImageFragment"
+        android:label="InitialSettingImageFragment"
+        tools:layout="@layout/fragment_initial_setting_image">
+        <action
+            android:id="@+id/action_initialSettingImageFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
 
 </navigation>

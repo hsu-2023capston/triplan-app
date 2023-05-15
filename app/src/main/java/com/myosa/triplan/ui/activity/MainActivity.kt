@@ -4,16 +4,20 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.myosa.triplan.BaseActivity
 import com.myosa.triplan.R
 import com.myosa.triplan.databinding.ActivityMainBinding
+import com.myosa.triplan.presentation.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var navController: NavController
+    private val  mainModel : MainViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     setupWithNavController(binding.bnMenu, navController)
                 } else {
                     binding.bnMenu.visibility = View.GONE
+                }
+            }
+
+            mainModel.isLogin.observe(this@MainActivity){
+                if(it){
+                    loge("로그인 되어있음")
                 }
             }
         }
