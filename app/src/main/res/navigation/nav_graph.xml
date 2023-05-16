@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/mainHomeFragment">
     <fragment
         android:id="@+id/mainHomeFragment"
         android:name="com.capstone.triplan.ui.fragment.MainHomeFragment"
@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainHomeFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_mainHomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
 
     </fragment>
     <fragment
@@ -123,9 +126,6 @@
         <action
             android:id="@+id/action_loginFragment_to_initialSettingNameFragment"
             app:destination="@id/initialSettingNameFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_mainHomeFragment"
-            app:destination="@id/mainHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/initialSettingNameFragment"

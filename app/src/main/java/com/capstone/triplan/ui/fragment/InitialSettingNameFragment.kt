@@ -5,7 +5,7 @@ import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentInitialSettingNameBinding
 
 
-class InitialSettingNameFragment : BaseFragment<FragmentInitialSettingNameBinding>(R.layout.fragment_initial_setting_image) {
+class InitialSettingNameFragment : BaseFragment<FragmentInitialSettingNameBinding>(R.layout.fragment_initial_setting_name) {
     override fun initView() {
         binding.apply {
 

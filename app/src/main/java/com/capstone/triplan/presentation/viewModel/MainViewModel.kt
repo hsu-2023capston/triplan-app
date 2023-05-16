@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.capstone.data.Prefs
@@ -31,6 +32,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun login(){
+        Log.e("TAG", "login: $isLogin", )
         _isLogin.postValue(true)
     }
 

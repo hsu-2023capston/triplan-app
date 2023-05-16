@@ -4,6 +4,7 @@ import android.app.Activity
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts.*
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -33,10 +34,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             }
         }
 
+        mainModel.isLogin.observe(viewLifecycleOwner){
+            if(it) findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+        }
+
     }
 
     private fun loginCheck(){
-        if (auth.currentUser == null) {//로그인 안함
+        if (auth.currentUser == null) {
             loge("로그인 X")
         } else {//로그인 한 상태
             loge("로그인 O")
@@ -78,6 +83,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                 auth.signInWithCredential(credential).addOnCompleteListener {
                     if(it.isSuccessful){ //성공시
                         loge("${account.givenName}")
+                        mainModel.login()
                     }
                     else{
                         loge("err")
