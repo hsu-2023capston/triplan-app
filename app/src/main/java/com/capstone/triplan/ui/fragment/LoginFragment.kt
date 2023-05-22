@@ -13,15 +13,21 @@ import com.google.firebase.auth.FirebaseAuth
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentLoginBinding
+import com.capstone.triplan.presentation.presentation.User
 import com.capstone.triplan.presentation.viewModel.MainViewModel
 import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Objects
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
     private val mainModel : MainViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
+
+    private lateinit var dbRef : DatabaseReference
 
 
     override fun initView() {
@@ -35,7 +41,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         }
 
         mainModel.isLogin.observe(viewLifecycleOwner){
-            if(it) findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+            if(it) //findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_mainHomeFragment)
         }
 
     }
@@ -82,7 +89,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
                 auth.signInWithCredential(credential).addOnCompleteListener {
                     if(it.isSuccessful){ //성공시
-                        loge("${account.givenName}")
+                        loge("${account.givenName}, ${account.idToken}")
+                        account.idToken?.let { it1 -> addUserToFRDatabase(1, it1," Test") }
                         mainModel.login()
                     }
                     else{
@@ -94,4 +102,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             Log.e("res err", "handleResults: ${task.exception.toString()}", )
         }
     }
+
+    private fun addUserToFRDatabase(uid: Int, uToken: String, name: String){
+        dbRef = FirebaseDatabase.getInstance("https://triplan-38f12-default-rtdb.firebaseio.com/").getReference()
+
+        val map = HashMap<String,String>();
+        map["uid"] = uid.toString()
+        map["name"] = name
+        dbRef.child("user").child(uid.toString()).setValue(map)
+        loge("hi")
+    }
+
 }
