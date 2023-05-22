@@ -4,15 +4,16 @@ plugins{
     id 'kotlin-kapt'
     //kotlin("android.extensions")
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
     //  id 'androidx.navigation.safeargs.kotlin'
 }
 
 android{
-    namespace 'com.myosa.triplan'
+    namespace 'com.capstone.triplan'
     compileSdk 33
 
     defaultConfig{
-        applicationId "com.myosa.triplan"
+        applicationId "com.capstone.triplan"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -124,7 +125,7 @@ dependencies{
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     //google auth
-    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     //material calendarView
     implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'
