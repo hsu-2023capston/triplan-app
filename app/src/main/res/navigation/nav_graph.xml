@@ -73,6 +73,7 @@
         android:name="com.capstone.triplan.ui.fragment.GroupHomeFragment"
         android:label="GroupHomeFragment"
         tools:layout="@layout/fragment_group_home">
+
         <action
             android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
             app:destination="@id/editGroupFragment" />
@@ -96,7 +97,12 @@
         android:id="@+id/tripHomeFragment"
         android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
         android:label="TripHomeFragment"
-        tools:layout="@layout/fragment_trip_home"/>
+        tools:layout="@layout/fragment_trip_home">
+        <argument
+            android:name="trip_id"
+            app:argType="integer"/>
+    </fragment>
+
 
     <fragment
         android:id="@+id/tripArchiveFragment"

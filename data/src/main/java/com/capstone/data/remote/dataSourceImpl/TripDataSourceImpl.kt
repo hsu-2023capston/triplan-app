@@ -1,0 +1,12 @@
+package com.capstone.data.remote.dataSourceImpl
+
+import com.capstone.data.remote.dataSource.TripDataSource
+import com.capstone.data.remote.dto.TripDto
+import retrofit2.Retrofit
+import javax.inject.Inject
+
+class TripDataSourceImpl @Inject constructor(private val retrofit: Retrofit): TripDataSource {
+    override suspend fun getTrip(): TripDto {
+        return retrofit.create(TripDataSource::class.java).getTrip()
+    }
+}
