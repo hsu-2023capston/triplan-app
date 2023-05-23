@@ -38,12 +38,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     binding.bnMenu.visibility = View.GONE
                 }
             }
-
-            mainModel.isLogin.observe(this@MainActivity){
-                if(it){
-                    loge("로그인 되어있음")
-                }
-            }
         }
     }
 

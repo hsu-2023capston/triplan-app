@@ -3,11 +3,6 @@ package com.capstone.data.remote.dto
 import com.capstone.domain.model.DomainGroup
 
 data class GroupDto(
-    val Data: List<Group>,
-    val Message: String
-)
-
-data class Group(
     val group_id: Int,
     val group_name: String,
     val group_code: String,

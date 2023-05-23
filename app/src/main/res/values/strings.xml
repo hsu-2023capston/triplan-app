@@ -7,9 +7,10 @@
     <string name="initial_setting_text_msg">여행을 떠나기전,\nTriplan과 함께해요!</string>
     <string name="initial_setting_text_name">우선, 이용자님의 멋진 이름을 지어주세요</string>
     <string name="initial_setting_text_profile">%s님의 멋진 프로필사진을 골라주세요</string>
+    <string name="initial_setting_start">시작하기</string>
 
     <!-- 메인 홈-->
-    <string name="mainhome_msg">%s님 Triplan과 함께\n 총 %d번의 여행을 떠나주셨군요!</string>
+    <string name="mainhome_msg">%s님 Triplan과 함께\n총 %d번의 여행을 떠나주셨군요!</string>
     <string name="mainhome_group">%s님의 여행그룹</string>
     <string name="mainhome_trip_msg1">진행중인 여행</string>
     <string name="mainhome_trip_msg2">앞두고 있는 여행</string>

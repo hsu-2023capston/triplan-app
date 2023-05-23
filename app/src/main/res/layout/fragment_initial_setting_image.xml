@@ -6,35 +6,50 @@
         android:layout_height="match_parent"
         android:padding="20dp">
 
+        <TextView
+            android:id="@+id/btn_isi_start"
+            style="@style/tv_16_bold_white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_btn_blue200"
+            android:gravity="center"
+            android:text="@string/initial_setting_start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/iv_isp_02"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_isp_01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline17"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/iv_isp_01"
             app:srcCompat="@drawable/bg_profile_02" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/iv_isp_04"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_isp_03"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toTopOf="@+id/imageView10"
-            app:srcCompat="@drawable/bg_profile_03" />
+            app:layout_constraintStart_toEndOf="@+id/iv_isp_03"
+            app:layout_constraintTop_toTopOf="@+id/iv_isp_03"
+            app:srcCompat="@drawable/bg_profile_04" />
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/iv_isp_03"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline15"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline16"
-            app:srcCompat="@drawable/bg_profile_04" />
+            app:srcCompat="@drawable/bg_profile_03" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline12"
@@ -90,13 +105,12 @@
             style="@style/tv_24_bold_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/initial_setting_text_msg"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline12"
-            tools:text="@string/initial_setting_text_msg" />
+            app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_isp_msg"
             style="@style/tv_16_regular_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,19 +120,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/iv_isp_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="14dp"
             android:src="@drawable/bg_profile_00"
-            app:layout_constraintBottom_toTopOf="@+id/imageView8"
+            app:layout_constraintBottom_toTopOf="@+id/iv_isp_02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_isp_msg" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/iv_isp_01"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline18"
@@ -126,5 +140,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline13"
             app:srcCompat="@drawable/bg_profile_01" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/item_is_step2" />
+
+        <ImageView
+            android:id="@+id/btn_isi_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_isp_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_isp_profile"
+            app:srcCompat="@drawable/ic_arrow_left_blue300" />
 
     </androidx.constraintlayout.widget.ConstraintLayout></layout>

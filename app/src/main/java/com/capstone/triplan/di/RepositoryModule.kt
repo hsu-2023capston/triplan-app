@@ -1,8 +1,11 @@
 package com.capstone.triplan.di
 
 import com.capstone.data.remote.dataSource.GroupDataSource
+import com.capstone.data.remote.dataSource.UserDataSource
 import com.capstone.data.repositoryImpl.GroupRepositoryImpl
+import com.capstone.data.repositoryImpl.UserRepositoryImpl
 import com.capstone.domain.repository.GroupRepository
+import com.capstone.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +21,14 @@ object RepositoryModule {
         api: GroupDataSource
     ): GroupRepository {
         return GroupRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(
+        api: UserDataSource
+    ): UserRepository {
+        return UserRepositoryImpl(api)
     }
 
 }

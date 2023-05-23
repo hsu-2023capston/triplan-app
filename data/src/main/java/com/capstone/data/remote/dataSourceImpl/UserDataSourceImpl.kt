@@ -1,0 +1,20 @@
+package com.capstone.data.remote.dataSourceImpl
+
+import com.capstone.data.remote.dataSource.UserDataSource
+import com.capstone.data.remote.dto.UserDto
+import com.google.gson.JsonObject
+import retrofit2.Retrofit
+import javax.inject.Inject
+
+class UserDataSourceImpl @Inject constructor(
+    private val retrofit: Retrofit
+):UserDataSource {
+    override suspend fun getUserLogin(access_token: String): UserDto {
+        return retrofit.create(UserDataSource::class.java).getUserLogin(access_token)
+    }
+
+    override suspend fun postUserLogin(query: JsonObject): UserDto {
+        return retrofit.create(UserDataSource::class.java).postUserLogin(query)
+    }
+
+}

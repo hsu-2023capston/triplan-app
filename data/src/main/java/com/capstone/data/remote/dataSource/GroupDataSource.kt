@@ -9,5 +9,5 @@ interface GroupDataSource {
     suspend fun getGroup(
         @Query("user_id")
         user_id: Int
-    ) : GroupDto
+    ) : List<GroupDto>
 }
