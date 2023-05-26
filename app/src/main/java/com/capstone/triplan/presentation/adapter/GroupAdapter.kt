@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -40,5 +41,11 @@ class GroupAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<Gr
         }
 
     }
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newItems: List<DomainTrip>) {
+        this.items = newItems
+        notifyDataSetChanged()
+    }
+
 
 }
