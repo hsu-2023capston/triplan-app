@@ -20,7 +20,7 @@ object NetworkModule {
         prefs: Prefs
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://210.119.104.148:12345")
+            .baseUrl("http://210.119.104.148:12345")
             .client(provideOkHttpClient(prefs))
             .addConverterFactory(GsonConverterFactory.create())
             .build()

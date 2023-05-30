@@ -1,6 +1,5 @@
 package com.capstone.domain.model
 
-import java.util.*
 
 data class DomainTrip(
     val trip_id: Int,

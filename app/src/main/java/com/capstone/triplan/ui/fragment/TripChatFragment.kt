@@ -1,6 +1,7 @@
 package com.capstone.triplan.ui.fragment
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.capstone.data.remote.dataSource.ChatMessageEntity
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
@@ -17,7 +18,6 @@ class TripChatFragment : BaseFragment<FragmentTripChatBinding>(R.layout.fragment
 
     override fun initView() {
         chatViewModel.getMessagesForTrip(1)
-
         binding.apply {
             adapter = ChatAdapter().apply { setHasStableIds(true) }
             rvTcChat.adapter = adapter

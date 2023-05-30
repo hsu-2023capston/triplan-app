@@ -15,7 +15,7 @@ import javax.inject.Inject
 class GroupHomeViewModel @Inject constructor(
     private val tripUseCase: TripUseCase
 ) : ViewModel() {
-    private var _trip: MutableLiveData<List<DomainTrip>> = MutableLiveData<List<DomainTrip>>()
+    private var _trip: MutableLiveData<List<DomainTrip>> = MutableLiveData()
     val trip: LiveData<List<DomainTrip>>
         get() = _trip
     fun getTrip(group_id:Int)
