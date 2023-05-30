@@ -6,6 +6,9 @@ import com.capstone.data.repositoryImpl.GroupRepositoryImpl
 import com.capstone.data.repositoryImpl.UserRepositoryImpl
 import com.capstone.domain.repository.GroupRepository
 import com.capstone.domain.repository.UserRepository
+import com.capstone.data.remote.dataSource.TripDataSource
+import com.capstone.data.repositoryImpl.TripRepositoryImpl
+import com.capstone.domain.repository.TripRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +24,13 @@ object RepositoryModule {
         api: GroupDataSource
     ): GroupRepository {
         return GroupRepositoryImpl(api)
+    }
+    @Provides
+    @Singleton
+    fun provideTripRepository(
+        api: TripDataSource
+    ): TripRepository{
+        return TripRepositoryImpl(api)
     }
 
     @Provides

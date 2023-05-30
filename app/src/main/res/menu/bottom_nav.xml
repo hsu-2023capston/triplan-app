@@ -4,20 +4,24 @@
         android:id="@+id/tripHomeFragment"
         android:enabled="true"
         android:icon="@drawable/ic_home"
+
         android:title="@string/home" />
     <item
         android:id="@+id/tripScheduleFragment"
         android:enabled="true"
         android:icon="@drawable/ic_schedule"
+        android:menuCategory="secondary"
         android:title="@string/schedule" />
     <item
         android:id="@+id/tripChatFragment"
         android:enabled="true"
         android:icon="@drawable/ic_chat"
+        android:menuCategory="secondary"
         android:title="@string/chat" />
     <item
         android:id="@+id/tripArchiveFragment"
         android:enabled="true"
         android:icon="@drawable/ic_archive"
+        android:menuCategory="secondary"
         android:title="@string/archive" />
 </menu>
