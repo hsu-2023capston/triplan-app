@@ -10,23 +10,24 @@ import com.capstone.domain.usecase.GroupUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class MainHomeViewModel @Inject constructor(
     private val groupUseCase: GroupUseCase
 ): ViewModel() {
-//    private var _groupList = MutableLiveData<List<DomainGroup>>()
-//    val groupList = MutableLiveData<List<DomainGroup>>
-//        get() = _groupList
+    private var _groupList : MutableLiveData<List<DomainGroup>> = MutableLiveData()
+    val groupList : LiveData<List<DomainGroup>>
+        get() = _groupList
 
-    init {
-        getGroupList()
-    }
-
-    fun getGroupList(){
+    fun getGroupList(uid: Int){
         viewModelScope.launch {
-            groupUseCase.getGroup(1)
+            val data = groupUseCase.getGroup(uid)
+            Log.e("TAG,", "getGroupList: ${data}", )
+            _groupList.postValue(data)
+            Log.e("TAG", "_: ${_groupList.value}", )
+            Log.e("TAG", "getGroupList: ${groupList.value}", )
+
         }
-        Log.e("TAG", "getGroupList:", )
     }
 }

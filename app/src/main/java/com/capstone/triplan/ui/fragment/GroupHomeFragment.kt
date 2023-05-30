@@ -1,6 +1,7 @@
 package com.capstone.triplan.ui.fragment
 
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentGroupHomeBinding

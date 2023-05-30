@@ -9,6 +9,7 @@ import com.capstone.triplan.BuildConfig
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentMainHomeBinding
 import com.capstone.triplan.di.CommonUtil.setProfileImage
+import com.capstone.triplan.presentation.adapter.GroupAdapter
 import com.capstone.triplan.presentation.presentation.User
 import com.capstone.triplan.presentation.viewModel.MainHomeViewModel
 import com.capstone.triplan.presentation.viewModel.MainViewModel
@@ -27,6 +28,7 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
     private val mainHomeViewModel : MainHomeViewModel by viewModels()
     private lateinit var auth : FirebaseAuth
     private lateinit var dbRef : DatabaseReference
+    private lateinit var groupAdapter: GroupAdapter
 
     override fun initView() {
         auth = FirebaseAuth.getInstance()
@@ -36,6 +38,9 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         setObserver()
         binding.apply {
             btnGroupJoin.tvGroupitemName.text="그룹 참여"
+
+            groupAdapter = GroupAdapter().apply { setHasStableIds(true) }
+            rvMhGroup.adapter = groupAdapter
 
             btnGroupCreate.setOnClickListener {
                 findNavController().navigate(R.id.action_mainHomeFragment_to_createGroupFragment)
@@ -77,7 +82,6 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         } else {//로그인 한 상태
             mainModel.getUserLogin(auth.currentUser!!.uid)
             //mainModel.getUserLogin("token")
-            mainHomeViewModel.getGroupList()
         }
     }
 
@@ -92,6 +96,11 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
                     .into(ivMhProfile)
                 tvMhGroupmsg.text = it.user_name?.let { it1-> String.format(requireContext().getString(R.string.mainhome_group),it.user_name) }
             }
+            it.user_id?.let { it1 -> mainHomeViewModel.getGroupList(it1) }
+        }
+        mainHomeViewModel.groupList.observe(viewLifecycleOwner){
+            loge("$it")
+            groupAdapter.setData(it)
         }
     }
 }
