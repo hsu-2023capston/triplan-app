@@ -1,8 +1,10 @@
 package com.capstone.triplan.di
 
 import com.capstone.domain.repository.GroupRepository
-import com.capstone.domain.repository.TripRepository
+import com.capstone.domain.repository.UserRepository
 import com.capstone.domain.usecase.GroupUseCase
+import com.capstone.domain.usecase.UserUseCase
+import com.capstone.domain.repository.TripRepository
 import com.capstone.domain.usecase.TripUseCase
 import dagger.Module
 import dagger.Provides
@@ -17,6 +19,11 @@ object UseCaseModule {
     @Singleton
     fun provideGroupUseCase(repository: GroupRepository): GroupUseCase{
         return GroupUseCase(repository)
+    }
+    @Provides
+    @Singleton
+    fun provideUserUseCase(repository: UserRepository) : UserUseCase {
+        return UserUseCase(repository)
     }
     @Provides
     @Singleton
