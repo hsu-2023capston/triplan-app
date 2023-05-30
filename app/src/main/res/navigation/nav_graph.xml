@@ -82,8 +82,6 @@
         <action
             android:id="@+id/action_groupHomeFragment_to_groupTripAllFragment"
             app:destination="@id/groupTripAllFragment" />
-        <argument android:name="group"
-            app:argType="com.capstone.tripplan.domain.model.DomainGroup"/>
     </fragment>
     <fragment
         android:id="@+id/joinGroupPasswordFragment"
