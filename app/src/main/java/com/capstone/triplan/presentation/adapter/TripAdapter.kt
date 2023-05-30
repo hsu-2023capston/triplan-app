@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.capstone.domain.model.DomainTrip
 import com.capstone.triplan.databinding.ItemTripTogoBinding
 
-class GroupAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
+class TripAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<TripAdapter.GroupViewHolder>() {
     private var items: List<DomainTrip> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
