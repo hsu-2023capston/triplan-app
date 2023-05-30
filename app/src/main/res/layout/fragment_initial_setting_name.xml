@@ -28,7 +28,7 @@
              />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_isp_msg"
             style="@style/tv_16_regular_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +46,24 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_isp_msg" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/item_is_step1" />
+
+        <ImageView
+            android:id="@+id/btn_isn_front"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_isn_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_isn_name"
+            app:srcCompat="@drawable/ic_arrow_right_blue300" />
 
     </androidx.constraintlayout.widget.ConstraintLayout></layout>

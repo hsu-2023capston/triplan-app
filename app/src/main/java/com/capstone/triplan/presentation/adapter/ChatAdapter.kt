@@ -28,7 +28,8 @@ class ChatAdapter(): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
     inner class ChatViewHolder(private val binding: ItemTripChatMessageBinding): RecyclerView.ViewHolder(binding.root){
         fun setContent(message : ChatMessageEntity){
-            binding.tvContent.text = message.content
+            binding.tvMychatContent.text = message.content
+            binding.tvMychatTime.text = message.timestamp
         }
     }
 

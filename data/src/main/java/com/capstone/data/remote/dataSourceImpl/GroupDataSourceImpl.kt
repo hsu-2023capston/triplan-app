@@ -8,7 +8,7 @@ import javax.inject.Inject
 class GroupDataSourceImpl @Inject constructor(
     private val retrofit: Retrofit
 ): GroupDataSource {
-    override suspend fun getGroup(user_id: Int): GroupDto {
+    override suspend fun getGroup(user_id: Int): List<GroupDto> {
         return retrofit.create(GroupDataSource::class.java).getGroup(user_id)
     }
 }

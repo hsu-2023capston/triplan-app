@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_mh_profile"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
@@ -26,58 +26,37 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_mh_msg"
         style="@style/tv_14_semibold_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/mainhome_msg"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_mh_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_mh_profile"
+        app:layout_constraintTop_toTopOf="@+id/iv_mh_profile" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_mh_groupmsg"
         style="@style/tv_12_regular_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/mainhome_group"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="invisible"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:visibility="gone" />
+        app:layout_constraintStart_toStartOf="@+id/iv_mh_profile"
+        app:layout_constraintTop_toBottomOf="@+id/iv_mh_profile" />
 
     <TextView
         android:id="@+id/textView6"
         style="@style/tv_12_regular_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/mainhome_trip_msg1"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/btnGroupJoin" />
-
-    <include
-        android:id="@+id/btnGroupJoin"
-        layout="@layout/item_group_add"
-        android:layout_width="155dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+        app:layout_constraintStart_toStartOf="@+id/rv_mh_group"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_mh_day"
         style="@style/tv_16_semibold_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tv_mh_d"
         style="@style/tv_16_semibold_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,24 +88,24 @@
         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tv_mh_day_ing"
         style="@style/tv_16_semibold_blue100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/common_string"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mh_day"
+        app:layout_constraintStart_toEndOf="@+id/tv_mh_day"
+        app:layout_constraintTop_toTopOf="@+id/tv_mh_day" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tv_mh_dday"
         style="@style/tv_16_semibold_blue100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/common_string"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mh_d"
+        app:layout_constraintStart_toEndOf="@+id/tv_mh_d"
+        app:layout_constraintTop_toTopOf="@+id/tv_mh_d" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
@@ -170,4 +149,43 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_mh_groupmsg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mh_groupmsg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_mh_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/btnGroupJoin"
+                layout="@layout/item_group_add"
+                android:layout_width="155dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout></layout>

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentGroupHomeBinding

@@ -14,6 +14,7 @@ import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentLoginBinding
 import com.capstone.triplan.presentation.presentation.User
+import com.capstone.triplan.presentation.viewModel.InitialSettingViewModel
 import com.capstone.triplan.presentation.viewModel.MainViewModel
 import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
@@ -26,25 +27,25 @@ import java.util.Objects
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
     private val mainModel : MainViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
+    private val isModel : InitialSettingViewModel by activityViewModels()
 
     private lateinit var dbRef : DatabaseReference
 
 
     override fun initView() {
         auth = FirebaseAuth.getInstance()
-        signOut() //Todo 추후 로그아웃 버튼으로 기능 이동
-        loginCheck()
+        //signOut() //Todo 추후 로그아웃 버튼으로 기능 이동
+        //loginCheck()
         binding.apply {
             btnLogin.setOnClickListener {
                 signInGoogle()
             }
+            button2.setOnClickListener {
+                signOut()
+            }
         }
 
-        mainModel.isLogin.observe(viewLifecycleOwner){
-            if(it) //findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
-                findNavController().navigate(R.id.action_loginFragment_to_mainHomeFragment)
-        }
-
+        setObserver()
     }
 
     private fun loginCheck(){
@@ -89,9 +90,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
                 auth.signInWithCredential(credential).addOnCompleteListener {
                     if(it.isSuccessful){ //성공시
-                        loge("${account.givenName}, ${account.idToken}")
-                        account.idToken?.let { it1 -> addUserToFRDatabase(1, it1," Test") }
-                        mainModel.login()
+                        loge("${account.givenName}, ${account.idToken} ${auth.currentUser!!.uid}")
+                            //addUserToFRDatabase(1, it1," Test")
+                            //mainModel.getUserLogin("token")
+                        mainModel.getUserLogin(auth.currentUser!!.uid)
+                        isModel.setToken(auth.currentUser!!.uid)
+                        account.givenName?.let { it1 -> isModel.setName(it1) }
                     }
                     else{
                         loge("err")
@@ -106,11 +110,25 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     private fun addUserToFRDatabase(uid: Int, uToken: String, name: String){
         dbRef = FirebaseDatabase.getInstance("https://triplan-38f12-default-rtdb.firebaseio.com/").getReference()
 
-        val map = HashMap<String,String>();
-        map["uid"] = uid.toString()
-        map["name"] = name
-        dbRef.child("user").child(uid.toString()).setValue(map)
-        loge("hi")
+//        val map = HashMap<String,String>();
+//        map["uid"] = uid.toString()
+//        map["name"] = name
+//        dbRef.child("user").child(uid.toString()).setValue(map)
+//        loge("hi")
     }
 
+    private fun setObserver(){
+        mainModel.isNew.observe(viewLifecycleOwner){
+             if (it){
+                 loge("나 새삥인디")
+                 findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+             }
+        }
+        mainModel.isLogin.observe(viewLifecycleOwner){
+            if(it){ //findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+                loge("나 Db에 있는놈")
+                findNavController().navigate(R.id.action_loginFragment_to_mainHomeFragment)
+            }
+        }
+    }
 }
