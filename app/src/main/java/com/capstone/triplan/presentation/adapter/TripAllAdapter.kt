@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.adapter
 
+
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,24 +11,25 @@ import com.bumptech.glide.request.RequestOptions
 import com.capstone.domain.model.DomainTrip
 import com.capstone.triplan.databinding.ItemTripTogoBinding
 
-class TripAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<TripAdapter.GroupViewHolder>() {
+class TripAllAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<TripAllAdapter.GroupViewHolder>() {
     private var items: List<DomainTrip> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
-        val binding = ItemTripTogoBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return  GroupViewHolder(binding)
+        val binding = ItemTripTogoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GroupViewHolder(binding)
     }
- 
+
     override fun getItemCount(): Int {
-        return 3
+        return items.size
     }
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
         holder.setItem(items[position])
     }
-    inner class GroupViewHolder(val binding: ItemTripTogoBinding):RecyclerView.ViewHolder(binding.root) {
-        fun setItem(trip: DomainTrip)
-        {
+
+    inner class GroupViewHolder(val binding: ItemTripTogoBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun setItem(trip: DomainTrip) {
             binding.tvGroupTripName.text = trip.trip_name
             binding.tvGroupTripStartDate.text = trip.start_date
             binding.tvGroupTripEndDate.text = trip.end_date
@@ -41,11 +43,10 @@ class TripAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<Tri
         }
 
     }
+
     @SuppressLint("NotifyDataSetChanged")
     fun setData(newItems: List<DomainTrip>) {
         this.items = newItems
         notifyDataSetChanged()
     }
-
-
 }

@@ -5,15 +5,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:clipToPadding="false"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_trip_togo"
+            android:elevation="10dp"
             android:paddingStart="16dp"
             android:paddingTop="6dp"
             android:paddingEnd="16dp"
@@ -42,7 +46,7 @@
                 android:layout_marginTop="32dp"
                 android:includeFontPadding="false"
                 android:text="@string/common_string"
-                app:layout_constraintStart_toEndOf="@+id/imageView14"
+                app:layout_constraintStart_toEndOf="@+id/iv_group_trip"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -74,7 +78,7 @@
                 android:layout_marginStart="12dp"
                 android:includeFontPadding="false"
                 android:text="@string/common_string"
-                app:layout_constraintStart_toEndOf="@+id/imageView14"
+                app:layout_constraintStart_toEndOf="@+id/iv_group_trip"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
