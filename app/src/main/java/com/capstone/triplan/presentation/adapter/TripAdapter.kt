@@ -19,12 +19,13 @@ class TripAdapter(val onclick : (DomainTrip) -> Unit) : RecyclerView.Adapter<Tri
     }
  
     override fun getItemCount(): Int {
-        return 3
+        return items.size
     }
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
         holder.setItem(items[position])
     }
+
     inner class GroupViewHolder(val binding: ItemTripTogoBinding):RecyclerView.ViewHolder(binding.root) {
         fun setItem(trip: DomainTrip)
         {

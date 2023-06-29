@@ -37,7 +37,8 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
         super.onViewCreated(view, savedInstanceState)
         viewModel.trip.observe(viewLifecycleOwner)
         {
-            adapter.setData(it)
+            val topThree  = it.slice(0..2)
+            adapter.setData(topThree)
         }
     }
 

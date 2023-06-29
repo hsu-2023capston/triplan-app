@@ -17,12 +17,13 @@ class UserRepositoryImpl(
         access_token: String,
         default_id: Int,
     ): DomainUser {
-        val jsonData : JsonObject = JsonObject().apply {
-            addProperty("user_name",user_name)
-            addProperty("access_token",access_token)
-            addProperty("default_id",default_id)
-        }
-        val data = api.postUserLogin(jsonData)
-        return data.toDomainUser()
+//        val jsonData : JsonObject = JsonObject().apply {
+//            addProperty("user_name",user_name)
+//            addProperty("access_token",access_token)
+//            addProperty("default_id",default_id)
+//        }
+//        val data = api.postUserLogin(user_name, access_token, default_id)
+//        return data.toDomainUser()
+        return api.postUserLogin(user_name, access_token, default_id).toDomainUser()
     }
 }

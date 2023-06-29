@@ -13,8 +13,8 @@ class UserDataSourceImpl @Inject constructor(
         return retrofit.create(UserDataSource::class.java).getUserLogin(access_token)
     }
 
-    override suspend fun postUserLogin(query: JsonObject): UserDto {
-        return retrofit.create(UserDataSource::class.java).postUserLogin(query)
+    override suspend fun postUserLogin(user_name:String, access_token:String, default_id:Int): UserDto {
+        return retrofit.create(UserDataSource::class.java).postUserLogin(user_name, access_token, default_id)
     }
 
 }

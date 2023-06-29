@@ -7,8 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="8dp"
+        android:paddingHorizontal="30dp"
+        android:paddingBottom="16dp"
         android:clipToPadding="false"
         >
 
@@ -19,9 +19,8 @@
             android:background="@drawable/bg_trip_togo"
             android:elevation="10dp"
             android:paddingStart="16dp"
-            android:paddingTop="6dp"
             android:paddingEnd="16dp"
-            android:paddingBottom="16dp"
+            android:paddingBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/iv_group_trip"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
