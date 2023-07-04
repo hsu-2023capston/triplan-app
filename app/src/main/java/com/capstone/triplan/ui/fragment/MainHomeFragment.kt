@@ -70,7 +70,12 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         mainModel.signOut()
         auth.signOut()
         GoogleSignIn.getClient(requireActivity(), GoogleSignInOptions.DEFAULT_SIGN_IN).signOut()
+        loge("로그아웃 됐어야함!?")
         findNavController().navigate(R.id.action_mainHomeFragment_to_loginFragment)
+    }
+
+    private fun revokeAccess(){
+        auth.currentUser?.delete()
     }
 
     private fun loginCheck(){
@@ -88,7 +93,7 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
     private fun setObserver(){
         mainModel.user.observe(viewLifecycleOwner){
             binding.apply {
-                tvMhMsg.text = it.user_name?.let { it1 -> String.format(requireContext().getString(R.string.mainhome_msg),it.user_name,3) }
+                tvMhMsg.text = it.user_name?.let { it1 -> String.format(requireContext().getString(R.string.mainhome_msg),it.user_name,it.trip_cnt) }
                 Glide.with(ivMhProfile)
 //                    .load("http://210.119.104.148:12345/image${it.default?.default_path}")
                     .load(it.default_id?.let { it1 -> setProfileImage(it1) })
@@ -97,6 +102,15 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
                 tvMhGroupmsg.text = it.user_name?.let { it1-> String.format(requireContext().getString(R.string.mainhome_group),it.user_name) }
             }
             it.user_id?.let { it1 -> mainHomeViewModel.getGroupList(it1) }
+        }
+        mainModel.isNew.observe(viewLifecycleOwner){
+            if(it==1) {
+                signOut()
+                loge("로그아웃 할게.~?")
+                loge("DB에 없음 메인홈")
+            }
+            else
+                loge("DB에 있음")
         }
         mainHomeViewModel.groupList.observe(viewLifecycleOwner){
             loge("$it")

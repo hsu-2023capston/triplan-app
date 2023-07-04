@@ -34,7 +34,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
     override fun initView() {
         auth = FirebaseAuth.getInstance()
-        //signOut() //Todo 추후 로그아웃 버튼으로 기능 이동
+        signOut() //Todo 추후 로그아웃 버튼으로 기능 이동
         //loginCheck()
         binding.apply {
             btnLogin.setOnClickListener {
@@ -90,7 +90,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
                 auth.signInWithCredential(credential).addOnCompleteListener {
                     if(it.isSuccessful){ //성공시
-                        loge("${account.givenName}, ${account.idToken} ${auth.currentUser!!.uid}")
+                        loge("성공했구요 ${account.givenName}, ${auth.currentUser!!.uid}")
                             //addUserToFRDatabase(1, it1," Test")
                             //mainModel.getUserLogin("token")
                         mainModel.getUserLogin(auth.currentUser!!.uid)
@@ -119,10 +119,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
     private fun setObserver(){
         mainModel.isNew.observe(viewLifecycleOwner){
-             if (it){
+             if (it==1){
                  loge("나 새삥인디")
                  findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
+
              }
+
         }
         mainModel.isLogin.observe(viewLifecycleOwner){
             if(it){ //findNavController().navigate(R.id.action_loginFragment_to_initialSettingNameFragment)
