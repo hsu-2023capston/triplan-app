@@ -123,7 +123,11 @@
         android:id="@+id/groupTripAllFragment"
         android:name="com.capstone.triplan.ui.fragment.GroupTripAllFragment"
         android:label="GroupTripAllFragment"
-        tools:layout="@layout/fragment_group_trip_all"/>
+        tools:layout="@layout/fragment_group_trip_all">
+        <argument
+            android:name="group_id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.capstone.triplan.ui.fragment.LoginFragment"
