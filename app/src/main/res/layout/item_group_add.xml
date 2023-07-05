@@ -42,6 +42,17 @@
         app:layout_constraintTop_toTopOf="@+id/view2"
         app:srcCompat="@drawable/ic_add_circle" />
 
+    <ImageView
+        android:id="@+id/iv_ga_img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
