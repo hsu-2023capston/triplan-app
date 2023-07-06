@@ -57,6 +57,8 @@ class TripAdapter(val onclick: (DomainTrip) -> Unit) :
                 }
                 if(ChronoUnit.DAYS.between(startDate,now).toInt() == 0)
                     tvDayBefore.text = "D-Day"
+                else if (ChronoUnit.DAYS.between(startDate,now).toInt() >= 0)
+                    tvDayBefore.text = "Day "+ChronoUnit.DAYS.between(startDate,now).toString()
                 else
                     tvDayBefore.text = "D"+ChronoUnit.DAYS.between(startDate,now).toString()
 

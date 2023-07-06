@@ -61,7 +61,6 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
                 adapter.setData(list.slice(0..2))
             else
                 adapter.setData(list)
-
         }
     }
 
