@@ -1,19 +1,15 @@
 package com.capstone.triplan.ui.fragment
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.capstone.domain.model.DomainTrip
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentGroupHomeBinding
+import com.capstone.triplan.presentation.adapter.GroupMemberAdapter
 import com.capstone.triplan.presentation.adapter.TripAdapter
 import com.capstone.triplan.presentation.viewModel.GroupHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,16 +19,19 @@ import dagger.hilt.android.AndroidEntryPoint
 class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragment_group_home) {
     private val viewModel: GroupHomeViewModel by activityViewModels()
     private val groupId = 1
-    private val adapter = TripAdapter { domainTrip ->
+    private val tripAdapter = TripAdapter { domainTrip ->
         findNavController().navigate(
             GroupHomeFragmentDirections.actionGroupHomeFragmentToTripHomeFragment(domainTrip.trip_id)
         )
     }
+    private val groupMemberAdapter = GroupMemberAdapter()
 
     override fun initView() {
         binding.apply {
-            rvGroupTrip.adapter= adapter
+            rvGroupTrip.adapter= tripAdapter
+            dwGroupHome.rvGroupMember.adapter= groupMemberAdapter
             viewModel.getTrip(groupId) // TODO: 그룹 아이디 하드 코딩됨
+            viewModel.getGroupMember(groupId)
             tvTripMore.setOnClickListener {
                 findNavController().navigate(R.id.action_groupHomeFragment_to_groupTripAllFragment)
             }
@@ -49,6 +48,7 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
             dwGroupHome.btGroupHomeDrawerOut.setOnClickListener{
                 Toast.makeText(context, "그룹 나가기", Toast.LENGTH_SHORT).show()
             }
+
         }
     }
 
@@ -58,9 +58,13 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
         {
             val list  = it.reversed()
             if(it.size>=3)
-                adapter.setData(list.slice(0..2))
+                tripAdapter.setData(list.slice(0..2))
             else
-                adapter.setData(list)
+                tripAdapter.setData(list)
+        }
+        viewModel.groupUsers.observe(viewLifecycleOwner)
+        {
+            groupMemberAdapter.setData(it)
         }
     }
 

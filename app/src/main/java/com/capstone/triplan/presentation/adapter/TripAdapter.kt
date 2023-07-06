@@ -15,24 +15,23 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 class TripAdapter(val onclick: (DomainTrip) -> Unit) :
-    RecyclerView.Adapter<TripAdapter.GroupViewHolder>() {
+    RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
     private var items: List<DomainTrip> = ArrayList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
-        val binding =
-            ItemTripTogoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return GroupViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripViewHolder {
+        val binding = ItemTripTogoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return TripViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
         holder.setItem(items[position])
     }
 
-    inner class GroupViewHolder(val binding: ItemTripTogoBinding) :
+    inner class TripViewHolder(val binding: ItemTripTogoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SimpleDateFormat")
         fun setItem(trip: DomainTrip) {
