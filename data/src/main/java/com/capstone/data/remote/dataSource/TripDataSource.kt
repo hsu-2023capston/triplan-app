@@ -10,5 +10,5 @@ interface TripDataSource {
     suspend fun getTrip(
         @Query("group_id")
         group_id: Int
-    ): List<Trip>
+    ): TripDto
 }

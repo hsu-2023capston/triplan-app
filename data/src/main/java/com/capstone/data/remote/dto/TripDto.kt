@@ -5,8 +5,9 @@ import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 data class TripDto(
-    val Data: List<Trip>,
-    val Message: String
+    val Message: String,
+    val Data: List<Trip>
+
 )
 data class Trip(
     val trip_id: Int,

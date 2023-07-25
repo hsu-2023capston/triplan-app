@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragment_group_home) {
     private val viewModel: GroupHomeViewModel by activityViewModels()
-    private val groupId = 1
+    private val groupId = 40
     private val tripAdapter = TripAdapter { domainTrip ->
         findNavController().navigate(
             GroupHomeFragmentDirections.actionGroupHomeFragmentToTripHomeFragment(domainTrip.trip_id)
@@ -29,9 +29,9 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
     override fun initView() {
         binding.apply {
             rvGroupTrip.adapter= tripAdapter
-            dwGroupHome.rvGroupMember.adapter= groupMemberAdapter
+           dwGroupHome.rvGroupMember.adapter= groupMemberAdapter
             viewModel.getTrip(groupId) // TODO: 그룹 아이디 하드 코딩됨
-            viewModel.getGroupMember(groupId)
+           viewModel.getGroupMember(groupId)
             tvTripMore.setOnClickListener {
                 findNavController().navigate(R.id.action_groupHomeFragment_to_groupTripAllFragment)
             }

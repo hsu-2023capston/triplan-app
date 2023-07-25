@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 
 class TripDataSourceImpl @Inject constructor(private val retrofit: Retrofit): TripDataSource {
-    override suspend fun getTrip(group_id:Int): List<Trip> {
+    override suspend fun getTrip(group_id:Int): TripDto {
         return retrofit.create(TripDataSource::class.java).getTrip(group_id)
     }
 }
