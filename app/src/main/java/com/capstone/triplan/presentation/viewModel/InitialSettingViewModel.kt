@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -32,6 +33,7 @@ class InitialSettingViewModel @Inject constructor(
         get() = _pid
 
     fun postUser(){
+        Log.e("TAG", "postUser: 유저 등록할게", )
         viewModelScope.launch {
             token.value?.let { pid.value?.let { it1 ->
                 name.value?.let { it2 ->

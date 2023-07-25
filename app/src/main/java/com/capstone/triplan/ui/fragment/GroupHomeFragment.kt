@@ -28,7 +28,7 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
                 findNavController().navigate(R.id.action_groupHomeFragment_to_tripHomeFragment)
             }
             rvGroupTrip.adapter= adapter
-            viewModel.getTrip(1) // TODO: 그룹 아이디 하드 코딩됨
+            viewModel.getTrip(2) // TODO: 그룹 아이디 하드 코딩됨
 
         }
     }

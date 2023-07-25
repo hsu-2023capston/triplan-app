@@ -34,8 +34,9 @@ object NetworkModule {
         prefs: Prefs
     ): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(3, TimeUnit.SECONDS)
-            .readTimeout(5, TimeUnit.SECONDS)
+            .connectTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS)
+            .writeTimeout(100, TimeUnit.SECONDS)
             .addInterceptor(provideOkHttpLogging())
             .addInterceptor{
                 val request = it.request()
