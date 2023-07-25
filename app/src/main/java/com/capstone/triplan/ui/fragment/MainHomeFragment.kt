@@ -115,6 +115,7 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         mainHomeViewModel.groupList.observe(viewLifecycleOwner){
             loge("$it")
             groupAdapter.setData(it)
+            loge("${groupAdapter.itemCount}")
         }
     }
 }

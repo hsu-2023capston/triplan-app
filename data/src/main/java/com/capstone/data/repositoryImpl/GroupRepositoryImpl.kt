@@ -2,6 +2,7 @@ package com.capstone.data.repositoryImpl
 
 import com.capstone.data.remote.dataSource.GroupDataSource
 import com.capstone.domain.model.DomainGroup
+import com.capstone.domain.model.DomainGroupName
 import com.capstone.domain.repository.GroupRepository
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -29,6 +30,10 @@ class GroupRepositoryImpl(
 
 
         return api.postGroup(group_name,group_pw,user_id,imgData)
+    }
+
+    override suspend fun getGroupName(group_code: String): DomainGroupName {
+        return api.getGroupName(group_code).toDomainGroupName()
     }
 
 }

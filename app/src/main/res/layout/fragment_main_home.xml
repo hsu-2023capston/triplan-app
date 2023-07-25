@@ -31,10 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/mainhome_msg"
         app:layout_constraintBottom_toBottomOf="@+id/iv_mh_profile"
         app:layout_constraintStart_toEndOf="@+id/iv_mh_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_mh_profile" />
+        app:layout_constraintTop_toTopOf="@+id/iv_mh_profile"
+        tools:text="@string/mainhome_msg" />
 
     <TextView
         android:id="@+id/tv_mh_groupmsg"
