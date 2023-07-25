@@ -137,7 +137,8 @@ dependencies{
 
     //material calendarView
     implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'
-
+    //Drawerlayout
+    implementation "androidx.drawerlayout:drawerlayout:1.2.0"
 }
 
 kapt{

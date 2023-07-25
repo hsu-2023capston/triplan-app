@@ -1,6 +1,7 @@
 package com.capstone.data.remote.dataSource
 
-import com.capstone.data.remote.dto.UserDto
+import com.capstone.data.remote.dto.User
+import com.capstone.data.remote.dto.UserDTO
 import com.google.gson.JsonObject
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -14,7 +15,7 @@ interface UserDataSource {
     suspend fun getUserLogin(
         @Query("access_token")
         access_token: String
-    ) : UserDto
+    ) : User
 
     @FormUrlEncoded
     @POST("/login")
@@ -22,5 +23,5 @@ interface UserDataSource {
         @Field("user_name") user_name: String,
         @Field("access_token") access_token: String,
         @Field("default_id") default_id:Int
-    ) :UserDto
+    ) :User
 }

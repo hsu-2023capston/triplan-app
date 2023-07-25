@@ -6,6 +6,6 @@ import com.capstone.domain.repository.TripRepository
 
 class TripRepositoryImpl(private val api: TripDataSource ) : TripRepository {
     override suspend fun getTrip(group_id: Int): List<DomainTrip> {
-        return api.getTrip(group_id).map { it.toDomainTrip() }
+        return api.getTrip(group_id).Data.map { it.toDomainTrip() }
     }
 }

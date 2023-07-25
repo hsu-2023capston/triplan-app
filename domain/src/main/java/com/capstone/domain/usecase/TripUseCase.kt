@@ -1,5 +1,6 @@
 package com.capstone.domain.usecase
 
+import android.util.Log
 import com.capstone.domain.model.DomainTrip
 import com.capstone.domain.repository.TripRepository
 
