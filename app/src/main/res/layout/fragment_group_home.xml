@@ -128,7 +128,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/rv_group_trip"
                         app:layout_constraintStart_toStartOf="@+id/rv_group_trip"
-                        app:layout_constraintTop_toBottomOf="@+id/rv_group_trip" />
+                        app:layout_constraintTop_toBottomOf="@+id/rv_group_trip"
+                        app:mcv_selectionColor="@color/blue_100" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>

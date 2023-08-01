@@ -17,7 +17,7 @@ class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.
     private val viewModel: GroupHomeViewModel by activityViewModels()
     private val adapter = TripAdapter { domainTrip ->
         findNavController().navigate(
-            GroupHomeFragmentDirections.actionGroupHomeFragmentToTripHomeFragment(domainTrip.trip_id)
+            GroupHomeFragmentDirections.actionGroupHomeFragmentToBottomNavigation(domainTrip.trip_id)
         )
     }
     override fun initView() {

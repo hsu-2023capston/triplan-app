@@ -9,6 +9,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.capstone.domain.model.DomainUser
 import com.capstone.triplan.databinding.ItemGroupMemberBinding
+import com.capstone.triplan.di.CommonUtil
 
 class GroupMemberAdapter : RecyclerView.Adapter<GroupMemberAdapter.GroupMemberViewHolder>() {
     private var items: List<DomainUser> = ArrayList()
@@ -31,8 +32,9 @@ class GroupMemberAdapter : RecyclerView.Adapter<GroupMemberAdapter.GroupMemberVi
         {
             binding.apply {
                 Glide.with(ivGroupMember)
-                    .load("http://210.119.104.148:12345${member.default_id}")
-                    .apply(RequestOptions.bitmapTransform(RoundedCorners(50)))
+//                    .load("http://210.119.104.148:12345/image${it.default?.default_path}")
+                    .load(member.default_id?.let { it1 -> CommonUtil.setProfileImage(it1) })
+                    .circleCrop()
                     .into(ivGroupMember)
                 tvGroupMember.text= member.user_name
             }

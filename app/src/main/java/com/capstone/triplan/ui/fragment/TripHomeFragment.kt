@@ -3,6 +3,7 @@ package com.capstone.triplan.ui.fragment
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
@@ -19,7 +20,7 @@ class TripHomeFragment :BaseFragment<FragmentTripHomeBinding>(R.layout.fragment_
     override fun initView() {
         binding.apply {
             tbTripHome.tbTrip.setNavigationOnClickListener{
-                findNavController().popBackStack()
+                findNavController().navigateUp()
             }
             tbTripHome.tbTrip.setOnMenuItemClickListener{when(it.itemId){
                 R.id.edit_trip -> {
@@ -31,6 +32,7 @@ class TripHomeFragment :BaseFragment<FragmentTripHomeBinding>(R.layout.fragment_
                 else -> false
             }
             }
+
 
 
         }
