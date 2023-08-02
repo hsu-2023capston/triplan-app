@@ -29,7 +29,7 @@ class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter.setData(args.trip.toList().reversed())
+        adapter.setData(args.trip.toList())
     }
 
 }

@@ -16,10 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TripHomeFragment : BaseFragment<FragmentTripHomeBinding>(R.layout.fragment_trip_home) {
     private val args by navArgs<BottomNavigationArgs>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun initView() {
         binding.apply {
@@ -42,8 +38,7 @@ class TripHomeFragment : BaseFragment<FragmentTripHomeBinding>(R.layout.fragment
                 }
                 tvTripTitle.text = args.trip.trip_name
                 tvTripStartDate.text = args.trip.start_date
-                //args.trip.start_date.
-                //tvTripEndDate.text = args.trip.end_date
+                tvTripEndDate.text = args.trip.end_date
             }
             Glide.with(ivTripHome)
                 .load("http://210.119.104.148:12345${args.trip.trip_path}")

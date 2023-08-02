@@ -12,9 +12,9 @@ interface TripDataSource {
         group_id: Int
     ): TripDTO
 
-//    @GET("/trip/member")
-//    suspend fun getTripMember(
-//        @Query("trup_id")
-//        trip_id:Int
-//    ):UserDTO
+    @GET("/trip/member")
+    suspend fun getTripMember(
+        @Query("trip_id")
+        trip_id:Int
+    ):UserDTO
 }

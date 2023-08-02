@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentGroupHomeBinding
@@ -27,6 +25,7 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
         findNavController().navigate(
             GroupHomeFragmentDirections.actionGroupHomeFragmentToBottomNavigation(domainTrip)
         )
+        viewModel.setTrip(domainTrip)
     }
     private val groupMemberAdapter = GroupMemberAdapter()
 
@@ -36,7 +35,7 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
             dwGroupHome.rvGroupMember.adapter = groupMemberAdapter
             viewModel.getTrip(groupId) // TODO: 그룹 아이디 하드 코딩됨
             viewModel.getGroupMember(groupId)
-            viewModel.trip.observe(viewLifecycleOwner){trip->
+            viewModel.trips.observe(viewLifecycleOwner){ trip->
                 tvTripMore.setOnClickListener {
                     findNavController().navigate(GroupHomeFragmentDirections.actionGroupHomeFragmentToGroupTripAllFragment(trip.toTypedArray()))
                 }
@@ -62,13 +61,12 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.trip.observe(viewLifecycleOwner)
+        viewModel.trips.observe(viewLifecycleOwner)
         {
-            val list = it.reversed()
             if (it.size >= 3)
-                tripAdapter.setData(list.slice(0..2))
+                tripAdapter.setData(it.slice(0..2))
             else
-                tripAdapter.setData(list)
+                tripAdapter.setData(it)
         }
         viewModel.groupUsers.observe(viewLifecycleOwner)
         {
