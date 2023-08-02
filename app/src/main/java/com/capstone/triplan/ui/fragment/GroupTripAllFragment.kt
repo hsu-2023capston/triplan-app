@@ -14,10 +14,9 @@ import com.capstone.triplan.presentation.viewModel.GroupHomeViewModel
 
 class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.fragment_group_trip_all) {
     private val args by navArgs<GroupTripAllFragmentArgs>()
-    private val viewModel: GroupHomeViewModel by activityViewModels()
     private val adapter = TripAdapter { domainTrip ->
         findNavController().navigate(
-            GroupHomeFragmentDirections.actionGroupHomeFragmentToBottomNavigation(domainTrip.trip_id)
+            GroupHomeFragmentDirections.actionGroupHomeFragmentToBottomNavigation(domainTrip)
         )
     }
     override fun initView() {
@@ -30,10 +29,7 @@ class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.trip.observe(viewLifecycleOwner)
-        {
-            adapter.setData(it.reversed())
-        }
+        adapter.setData(args.trip.toList().reversed())
     }
 
 }

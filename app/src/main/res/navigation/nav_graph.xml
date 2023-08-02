@@ -73,6 +73,9 @@
         android:name="com.capstone.triplan.ui.fragment.GroupHomeFragment"
         android:label="GroupHomeFragment"
         tools:layout="@layout/fragment_group_home">
+        <argument
+            android:name="trip_id"
+            app:argType="integer"/>
 
         <action
             android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
@@ -81,11 +84,7 @@
             android:id="@+id/action_groupHomeFragment_to_bottomNavigation"
             app:restoreState="true"
             app:destination="@id/bottom_navigation" >
-            <argument
-                android:name="trip_id"
-                app:argType="integer"/>
         </action>
-
         <action
             android:id="@+id/action_groupHomeFragment_to_groupTripAllFragment"
             app:destination="@id/groupTripAllFragment" />
@@ -102,14 +101,14 @@
     <navigation
         android:id="@+id/bottom_navigation"
         app:startDestination="@id/tripHomeFragment">
+        <argument
+            android:name="trip"
+            app:argType="com.capstone.domain.model.DomainTrip"/>
         <fragment
             android:id="@+id/tripHomeFragment"
             android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
             android:label="TripHomeFragment"
             tools:layout="@layout/fragment_trip_home">
-            <argument
-                android:name="trip_id"
-                app:argType="integer"/>
         </fragment>
 
 
@@ -129,6 +128,7 @@
             android:label="TripScheduleFragment"
             tools:layout="@layout/fragment_trip_schedule"/>
 
+
     </navigation>
 
     <fragment
@@ -137,8 +137,8 @@
         android:label="GroupTripAllFragment"
         tools:layout="@layout/fragment_group_trip_all">
         <argument
-            android:name="group_id"
-            app:argType="integer" />
+            android:name="trip"
+            app:argType="com.capstone.domain.model.DomainTrip[]" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
