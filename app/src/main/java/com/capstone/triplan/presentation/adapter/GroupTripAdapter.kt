@@ -12,10 +12,11 @@ import com.capstone.domain.model.DomainTrip
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.ItemTripTogoBinding
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
-class TripAdapter(val onclick: (DomainTrip) -> Unit) :
-    RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
+class GroupTripAdapter(val onclick: (DomainTrip) -> Unit) :
+    RecyclerView.Adapter<GroupTripAdapter.TripViewHolder>() {
     private var items: List<DomainTrip> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripViewHolder {
@@ -35,8 +36,8 @@ class TripAdapter(val onclick: (DomainTrip) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SimpleDateFormat")
         fun setItem(trip: DomainTrip) {
-            val endDate = LocalDate.parse(trip.end_date)
-            val startDate = LocalDate.parse(trip.start_date)
+            val endDate = LocalDate.parse(trip.end_date, DateTimeFormatter.ofPattern("yyyy.MM.dd."))
+            val startDate = LocalDate.parse(trip.start_date,DateTimeFormatter.ofPattern("yyyy.MM.dd."))
             val now = LocalDate.now()
             binding.apply {
                 tvGroupTripName.text = trip.trip_name

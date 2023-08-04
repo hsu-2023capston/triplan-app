@@ -101,16 +101,12 @@
     <navigation
         android:id="@+id/bottom_navigation"
         app:startDestination="@id/tripHomeFragment">
-        <argument
-            android:name="trip"
-            app:argType="com.capstone.domain.model.DomainTrip"/>
         <fragment
             android:id="@+id/tripHomeFragment"
             android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
             android:label="TripHomeFragment"
             tools:layout="@layout/fragment_trip_home">
         </fragment>
-
 
         <fragment
             android:id="@+id/tripArchiveFragment"
@@ -139,6 +135,9 @@
         <argument
             android:name="trip"
             app:argType="com.capstone.domain.model.DomainTrip[]" />
+        <action
+            android:id="@+id/action_groupTripAllFragment_to_bottom_navigation"
+            app:destination="@id/bottom_navigation" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

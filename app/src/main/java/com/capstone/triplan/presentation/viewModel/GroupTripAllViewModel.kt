@@ -7,10 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.capstone.data.Prefs
 import com.capstone.domain.model.DomainTrip
 import com.google.gson.GsonBuilder
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+@HiltViewModel
 class GroupTripAllViewModel @Inject constructor(
     private val prefs: Prefs
 ) : ViewModel()  {
