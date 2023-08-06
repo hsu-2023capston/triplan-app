@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capstone.data.Prefs
 import com.capstone.domain.model.DomainTrip
+import com.capstone.domain.model.DomainUser
 import com.capstone.domain.usecase.TripUseCase
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,6 +20,15 @@ class TripHomeViewModel @Inject constructor(
     private var _trip: MutableLiveData<DomainTrip> = MutableLiveData()
     val trip: LiveData<DomainTrip>
         get() = _trip
+
+    private var _tripUser: MutableLiveData<List<DomainUser>> = MutableLiveData()
+    val tripUser: LiveData<List<DomainUser>>
+        get() = _tripUser
+
+    fun setTripUser(trip_id: Int){
+
+    }
+
     init {
         viewModelScope.launch {
             _trip.value= GsonBuilder().create().fromJson(prefs.trip,DomainTrip::class.java)

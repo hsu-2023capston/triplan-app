@@ -24,10 +24,6 @@ class GroupHomeViewModel @Inject constructor(
     val trips: LiveData<List<DomainTrip>>
         get() = _trips
 
-    private var _trip: MutableLiveData<DomainTrip> = MutableLiveData()
-    val trip: LiveData<DomainTrip>
-        get() = _trip
-
     private var _groupUsers: MutableLiveData<List<DomainUser>> = MutableLiveData()
     val  groupUsers : LiveData<List<DomainUser>>
         get() = _groupUsers
