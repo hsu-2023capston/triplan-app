@@ -25,8 +25,10 @@ class TripHomeViewModel @Inject constructor(
     val tripUser: LiveData<List<DomainUser>>
         get() = _tripUser
 
-    fun setTripUser(trip_id: Int){
-
+    fun getTripUser(trip_id: Int){
+        viewModelScope.launch {
+            _tripUser.value = tripUseCase.getTripMember(trip_id)
+        }
     }
 
     init {

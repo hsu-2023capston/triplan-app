@@ -10,18 +10,17 @@ import com.capstone.domain.model.DomainUser
 import com.capstone.triplan.databinding.ItemTripMainUserBinding
 import com.capstone.triplan.di.CommonUtil
 
-class TripUserAdapter: RecyclerView.Adapter<TripUserAdapter.UserViewHolder>() {
+class TripUserAdapter : RecyclerView.Adapter<TripUserAdapter.UserViewHolder>() {
     private var items: List<DomainUser> = ArrayList()
-    inner class UserViewHolder(val binding: ItemTripMainUserBinding) :RecyclerView.ViewHolder(binding.root) {
-        fun setItem(user: DomainUser){
+
+    inner class UserViewHolder(val binding: ItemTripMainUserBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun setItem(user: DomainUser) {
             binding.apply {
                 tvTripUser.text = user.user_name
                 Glide.with(ivTripUserProfile)
 //                    .load("http://210.119.104.148:12345/image${it.default?.default_path}")
-                    .load(user.default_id.let { it1 ->
-                        if (it1 != null) {
-                            CommonUtil.setProfileImage(it1)
-                        }
+                    .load(user.default_id?.let { it1 -> CommonUtil.setProfileImage(it1)
                     })
                     .circleCrop()
                     .into(ivTripUserProfile)
@@ -29,8 +28,12 @@ class TripUserAdapter: RecyclerView.Adapter<TripUserAdapter.UserViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripUserAdapter.UserViewHolder {
-        val binding = ItemTripMainUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): TripUserAdapter.UserViewHolder {
+        val binding =
+            ItemTripMainUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(binding)
     }
 
@@ -41,6 +44,7 @@ class TripUserAdapter: RecyclerView.Adapter<TripUserAdapter.UserViewHolder>() {
     override fun getItemCount(): Int {
         return items.size
     }
+
     @SuppressLint("NotifyDataSetChanged")
     fun setData(newItems: List<DomainUser>) {
         this.items = newItems

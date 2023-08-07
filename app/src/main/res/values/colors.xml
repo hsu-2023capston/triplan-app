@@ -15,5 +15,6 @@
     <color name="blue_400">#FF31AEFF</color>
 
     <color name="blue_200_blur">#79087FCB</color>
+    <color name="gray_blur">#798F8F8F</color>
 
 </resources>
