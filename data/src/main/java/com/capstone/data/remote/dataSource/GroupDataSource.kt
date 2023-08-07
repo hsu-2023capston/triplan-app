@@ -3,6 +3,7 @@ package com.capstone.data.remote.dataSource
 import com.capstone.data.remote.dto.GroupDTO
 
 import com.capstone.data.remote.dto.GroupNameDTO
+import com.capstone.data.remote.dto.MessageDTO
 import okhttp3.MultipartBody
 import retrofit2.http.*
 import com.capstone.data.remote.dto.UserDTO
@@ -23,7 +24,7 @@ interface GroupDataSource {
         @Part("group_pw") group_pw: String,
         @Part("user_id") user_id: Int,
         @Part group_path: MultipartBody.Part
-    )
+    ): MessageDTO
 
     @GET("group/join")
     suspend fun getGroupName(

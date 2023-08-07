@@ -1,8 +1,10 @@
 package com.capstone.data.repositoryImpl
 
 import com.capstone.data.remote.dataSource.GroupDataSource
+import com.capstone.data.remote.dto.MessageDTO
 import com.capstone.domain.model.DomainGroup
 import com.capstone.domain.model.DomainGroupName
+import com.capstone.domain.model.DomainMessage
 import com.capstone.domain.model.DomainUser
 import com.capstone.domain.repository.GroupRepository
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -22,7 +24,7 @@ class GroupRepositoryImpl(
         group_pw: String,
         user_id: Int,
         group_path: File,
-    ) {
+    ): DomainMessage {
         val requestFile = group_path.asRequestBody("image/png".toMediaTypeOrNull())
         val imgData = MultipartBody.Part.createFormData("group_path",group_path.name,requestFile)
 //        val nameData = MultipartBody.Part.createFormData("group_name", group_name)
@@ -30,7 +32,7 @@ class GroupRepositoryImpl(
 //        val idData = MultipartBody.Part.createFormData("user_id", user_id.toString())
 
 
-        return api.postGroup(group_name,group_pw,user_id,imgData)
+        return api.postGroup(group_name,group_pw,user_id,imgData).toDomainMessage()
     }
 
     override suspend fun getGroupName(group_code: String): DomainGroupName {

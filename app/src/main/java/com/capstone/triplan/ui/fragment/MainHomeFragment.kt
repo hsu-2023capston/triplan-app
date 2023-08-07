@@ -5,7 +5,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.capstone.triplan.BaseFragment
-import com.capstone.triplan.BuildConfig
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentMainHomeBinding
 import com.capstone.triplan.di.CommonUtil.setProfileImage
@@ -16,7 +15,6 @@ import com.capstone.triplan.presentation.viewModel.MainViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,8 +36,12 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         setObserver()
         binding.apply {
             btnGroupJoin.tvGroupitemName.text="그룹 참여"
-
-            groupAdapter = GroupAdapter().apply { setHasStableIds(true) }
+            rvMhGroup.isNestedScrollingEnabled = false
+            groupAdapter = GroupAdapter()//.apply { setHasStableIds(true) }
+            groupAdapter.onClick = {
+                val action = MainHomeFragmentDirections.actionMainHomeFragmentToGroupHomeFragment(it)
+                findNavController().navigate(action)
+            }
             rvMhGroup.adapter = groupAdapter
 
             btnGroupCreate.setOnClickListener {
@@ -100,6 +102,7 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
                     .circleCrop()
                     .into(ivMhProfile)
                 tvMhGroupmsg.text = it.user_name?.let { it1-> String.format(requireContext().getString(R.string.mainhome_group),it.user_name) }
+
             }
             it.user_id?.let { it1 -> mainHomeViewModel.getGroupList(it1) }
         }
@@ -115,6 +118,7 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         mainHomeViewModel.groupList.observe(viewLifecycleOwner){
             loge("$it")
             groupAdapter.setData(it)
+            //binding.rvMhGroup.minimumWidth = (155*groupAdapter.itemCount)+10
             loge("${groupAdapter.itemCount}")
         }
     }

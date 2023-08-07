@@ -38,7 +38,11 @@
         android:name="com.capstone.triplan.ui.fragment.CreateGroupFragment"
         android:label="CreateGroupFragment"
         tools:layout="@layout/fragment_create_group"
-        />
+        >
+        <action
+            android:id="@+id/action_createGroupFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/joinGroupFragment"
         android:name="com.capstone.triplan.ui.fragment.JoinGroupFragment"
@@ -73,9 +77,6 @@
         android:name="com.capstone.triplan.ui.fragment.GroupHomeFragment"
         android:label="GroupHomeFragment"
         tools:layout="@layout/fragment_group_home">
-        <argument
-            android:name="trip_id"
-            app:argType="integer"/>
 
         <action
             android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
@@ -88,6 +89,9 @@
         <action
             android:id="@+id/action_groupHomeFragment_to_groupTripAllFragment"
             app:destination="@id/groupTripAllFragment" />
+        <argument
+            android:name="group"
+            app:argType="com.capstone.domain.model.DomainGroup" />
     </fragment>
     <fragment
         android:id="@+id/joinGroupPasswordFragment"

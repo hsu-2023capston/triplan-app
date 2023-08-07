@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,11 +9,9 @@ import com.capstone.domain.model.DomainGroup
 import com.capstone.triplan.databinding.ItemGroupBinding
 import com.capstone.triplan.di.CommonUtil
 
-class GroupAdapter(
-    //val onClick: (DomainGroup) -> Unit
-): RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
+class GroupAdapter(): RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
     private var items: List<DomainGroup> = ArrayList()
-
+    lateinit var onClick: (DomainGroup) -> Unit
 
     inner class GroupViewHolder(private val binding: ItemGroupBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setContent(group: DomainGroup){
@@ -35,12 +34,16 @@ class GroupAdapter(
 
     override fun onBindViewHolder(holder: GroupAdapter.GroupViewHolder, position: Int) {
         holder.setContent(items[position])
+        holder.itemView.setOnClickListener {
+            onClick(items[position])
+        }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(newItems: List<DomainGroup>){
         items = newItems
         notifyDataSetChanged()
