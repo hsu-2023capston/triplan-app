@@ -21,8 +21,8 @@ class TripHomeViewModel @Inject constructor(
     private val timeTableUseCase: TimeTableUseCase,
     private val prefs: Prefs
 ) : ViewModel() {
-    private var _trip: MutableLiveData<DomainTrip> = MutableLiveData()
-    val trip: LiveData<DomainTrip>
+    private var _trip: MutableLiveData<DomainTrip> = MutableLiveData() //data 설정하는거
+    val trip: LiveData<DomainTrip> // getter 함수 느낌 -> 변화를 감지 애서 _trip의 value를 리턴
         get() = _trip
 
     private var _timeTable: MutableLiveData<List<DomainTimeTable>> = MutableLiveData()
@@ -37,6 +37,12 @@ class TripHomeViewModel @Inject constructor(
     fun getTripUser(trip_id: Int){
         viewModelScope.launch {
             _tripUser.value = tripUseCase.getTripMember(trip_id)
+        }
+    }
+
+    fun getTripTimeTable(trip_id: Int) {
+        viewModelScope.launch {
+            _timeTable.value = timeTableUseCase.getTripTimeTable(trip_id)
         }
     }
 
