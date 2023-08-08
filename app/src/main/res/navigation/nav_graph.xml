@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_joinGroupPasswordFragment_to_mainHomeFragment"
             app:destination="@id/mainHomeFragment" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
     </fragment>
     <navigation
         android:id="@+id/bottom_navigation"

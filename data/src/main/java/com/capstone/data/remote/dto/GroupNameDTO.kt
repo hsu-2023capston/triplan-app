@@ -4,7 +4,7 @@ import com.capstone.domain.model.DomainGroupName
 
 data class GroupNameDTO(
     val Message: String,
-    val Data: String
+    val Data: String?
 ) {
     fun toDomainGroupName(): DomainGroupName {
         return DomainGroupName(
