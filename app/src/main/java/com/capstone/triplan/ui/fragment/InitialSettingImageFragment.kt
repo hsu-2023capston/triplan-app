@@ -7,11 +7,13 @@ import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentInitialSettingImageBinding
 import com.capstone.triplan.di.CommonUtil.setProfileImage
 import com.capstone.triplan.presentation.viewModel.InitialSettingViewModel
+import com.capstone.triplan.presentation.viewModel.MainViewModel
 
 
 class InitialSettingImageFragment : BaseFragment<FragmentInitialSettingImageBinding>(R.layout.fragment_initial_setting_image) {
 
     private val isModel : InitialSettingViewModel by activityViewModels()
+    private val mainModel : MainViewModel by activityViewModels()
 
     override fun initView() {
         setObserver()
@@ -48,9 +50,12 @@ class InitialSettingImageFragment : BaseFragment<FragmentInitialSettingImageBind
         }
         isModel.name.observe(viewLifecycleOwner){
             binding.apply {
-                //tvIspMsg.text = String.format(requireContext().getString(R.string.initial_setting_text_profile),it))
-
+                tvIspMsg.text = String.format(requireContext().getString(R.string.initial_setting_text_profile),it)
             }
+        }
+        mainModel.isLogin.observe(viewLifecycleOwner){
+            if(it)
+                findNavController().navigate(R.id.action_initialSettingImageFragment_to_mainHomeFragment)
         }
     }
 }

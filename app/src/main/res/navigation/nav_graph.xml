@@ -38,7 +38,11 @@
         android:name="com.capstone.triplan.ui.fragment.CreateGroupFragment"
         android:label="CreateGroupFragment"
         tools:layout="@layout/fragment_create_group"
-        />
+        >
+        <action
+            android:id="@+id/action_createGroupFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/joinGroupFragment"
         android:name="com.capstone.triplan.ui.fragment.JoinGroupFragment"
@@ -78,11 +82,16 @@
             android:id="@+id/action_groupHomeFragment_to_editGroupFragment"
             app:destination="@id/editGroupFragment" />
         <action
-            android:id="@+id/action_groupHomeFragment_to_tripHomeFragment"
-            app:destination="@id/tripHomeFragment" />
+            android:id="@+id/action_groupHomeFragment_to_bottomNavigation"
+            app:restoreState="true"
+            app:destination="@id/bottom_navigation" >
+        </action>
         <action
             android:id="@+id/action_groupHomeFragment_to_groupTripAllFragment"
             app:destination="@id/groupTripAllFragment" />
+        <argument
+            android:name="group"
+            app:argType="com.capstone.domain.model.DomainGroup" />
     </fragment>
     <fragment
         android:id="@+id/joinGroupPasswordFragment"
@@ -92,38 +101,51 @@
         <action
             android:id="@+id/action_joinGroupPasswordFragment_to_mainHomeFragment"
             app:destination="@id/mainHomeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/tripHomeFragment"
-        android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
-        android:label="TripHomeFragment"
-        tools:layout="@layout/fragment_trip_home">
         <argument
-            android:name="trip_id"
-            app:argType="integer"/>
+            android:name="groupName"
+            app:argType="string" />
     </fragment>
+    <navigation
+        android:id="@+id/bottom_navigation"
+        app:startDestination="@id/tripHomeFragment">
+        <fragment
+            android:id="@+id/tripHomeFragment"
+            android:name="com.capstone.triplan.ui.fragment.TripHomeFragment"
+            android:label="TripHomeFragment"
+            tools:layout="@layout/fragment_trip_home">
+        </fragment>
+
+        <fragment
+            android:id="@+id/tripArchiveFragment"
+            android:name="com.capstone.triplan.ui.fragment.TripArchiveFragment"
+            android:label="TripArchiveFragment"
+            tools:layout="@layout/fragment_trip_archive"/>
+        <fragment
+            android:id="@+id/tripChatFragment"
+            android:name="com.capstone.triplan.ui.fragment.TripChatFragment"
+            android:label="TripChatFragment"
+            tools:layout="@layout/fragment_trip_chat"/>
+        <fragment
+            android:id="@+id/tripScheduleFragment"
+            android:name="com.capstone.triplan.ui.fragment.TripScheduleFragment"
+            android:label="TripScheduleFragment"
+            tools:layout="@layout/fragment_trip_schedule"/>
 
 
-    <fragment
-        android:id="@+id/tripArchiveFragment"
-        android:name="com.capstone.triplan.ui.fragment.TripArchiveFragment"
-        android:label="TripArchiveFragment"
-        tools:layout="@layout/fragment_trip_archive"/>
-    <fragment
-        android:id="@+id/tripChatFragment"
-        android:name="com.capstone.triplan.ui.fragment.TripChatFragment"
-        android:label="TripChatFragment"
-        tools:layout="@layout/fragment_trip_chat"/>
-    <fragment
-        android:id="@+id/tripScheduleFragment"
-        android:name="com.capstone.triplan.ui.fragment.TripScheduleFragment"
-        android:label="TripScheduleFragment"
-        tools:layout="@layout/fragment_trip_schedule"/>
+    </navigation>
+
     <fragment
         android:id="@+id/groupTripAllFragment"
         android:name="com.capstone.triplan.ui.fragment.GroupTripAllFragment"
         android:label="GroupTripAllFragment"
-        tools:layout="@layout/fragment_group_trip_all"/>
+        tools:layout="@layout/fragment_group_trip_all">
+        <argument
+            android:name="trip"
+            app:argType="com.capstone.domain.model.DomainTrip[]" />
+        <action
+            android:id="@+id/action_groupTripAllFragment_to_bottom_navigation"
+            app:destination="@id/bottom_navigation" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.capstone.triplan.ui.fragment.LoginFragment"

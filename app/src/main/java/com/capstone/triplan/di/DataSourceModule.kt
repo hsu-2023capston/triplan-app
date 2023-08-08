@@ -1,10 +1,12 @@
 package com.capstone.triplan.di
 
 import com.capstone.data.remote.dataSource.GroupDataSource
+import com.capstone.data.remote.dataSource.TimeTableDataSource
 import com.capstone.data.remote.dataSource.UserDataSource
 import com.capstone.data.remote.dataSourceImpl.GroupDataSourceImpl
 import com.capstone.data.remote.dataSourceImpl.UserDataSourceImpl
 import com.capstone.data.remote.dataSource.TripDataSource
+import com.capstone.data.remote.dataSourceImpl.TimeTableDataSourceImpl
 import com.capstone.data.remote.dataSourceImpl.TripDataSourceImpl
 import dagger.Module
 import dagger.Provides
@@ -37,5 +39,13 @@ object DataSourceModule {
         retrofit: Retrofit
     ): TripDataSource {
         return TripDataSourceImpl(retrofit)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTimeTableDataSource(
+        retrofit: Retrofit
+    ): TimeTableDataSource {
+        return  TimeTableDataSourceImpl(retrofit)
     }
 }

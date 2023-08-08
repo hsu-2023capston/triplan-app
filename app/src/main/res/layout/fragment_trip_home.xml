@@ -38,16 +38,15 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_trip_home" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_trip_participant"
+            android:id="@+id/rv_trip_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView18"
             app:layout_constraintTop_toBottomOf="@+id/textView18"
-            tools:listitem="@layout/item_trip_main" />
+            tools:listitem="@layout/item_trip_main_user" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -59,7 +58,7 @@
             android:paddingTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_trip_participant">
+            app:layout_constraintTop_toBottomOf="@+id/rv_trip_user">
 
             <ImageButton
                 android:id="@+id/ib_trip_home_prev_day"

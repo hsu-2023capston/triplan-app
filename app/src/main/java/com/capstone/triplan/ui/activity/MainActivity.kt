@@ -5,6 +5,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navOptions
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.capstone.triplan.BaseActivity
 import com.capstone.triplan.R
@@ -23,6 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.apply {
             val navHomeFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
             navController = navHomeFragment.navController
+            setupWithNavController(binding.bnMenu, navController)
 
             val tripFragments = arrayOf(
                 R.id.tripArchiveFragment,
@@ -33,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 if (destination.id in tripFragments ) {
                     binding.bnMenu.visibility = View.VISIBLE
-                    setupWithNavController(binding.bnMenu, navController)
+
                 } else {
                     binding.bnMenu.visibility = View.GONE
                 }

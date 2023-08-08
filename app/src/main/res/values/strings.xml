@@ -36,6 +36,12 @@
     <string name="grouphome_msg">%s의 최근 여행</string>
     <string name="grouphome_all_trip">더보기 ></string>
 
+    <!--그룹 홈 드로어-->
+    <string name="groupHomeDrawer_member">그룹 맴버</string>
+    <string name="groupHomeDrawer_code">참여코드</string>
+    <string name="groupHomeDrawer_setting">그룹 설정</string>
+    <string name="groupHomeDrawer_out">그룹 나가기</string>
+
     <!--여행 생성-->
     <string name="createtrip_msg">여행 생성하기</string>
     <string name="createtrip_date">여행 날짜</string>

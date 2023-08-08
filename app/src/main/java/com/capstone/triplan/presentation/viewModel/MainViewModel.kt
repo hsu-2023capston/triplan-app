@@ -21,8 +21,8 @@ class MainViewModel @Inject constructor(
     val isLogin : MutableLiveData<Boolean>
         get() = _isLogin
 
-    private var _isNew : MutableLiveData<Boolean> = MutableLiveData(false)
-    val isNew : MutableLiveData<Boolean>
+    private var _isNew : MutableLiveData<Int> = MutableLiveData(0)
+    val isNew : MutableLiveData<Int>
         get() = _isNew
 
     private val _user : MutableLiveData<DomainUser> = MutableLiveData()
@@ -49,17 +49,24 @@ class MainViewModel @Inject constructor(
             _isLogin.postValue(false)
         }
     }
+
+    fun postNew(){
+        viewModelScope.launch {
+            _isNew.postValue(0)
+        }
+    }
     fun getUserLogin(access_token: String){
         viewModelScope.launch {
             val user = userUseCase.getUserLogin(access_token)
-            _user.postValue(DomainUser(user.default_id, user_id = user.user_id, user_name = user.user_name, Message = user.Message))
+            _user.postValue(DomainUser(user.default_id, user_id = user.user_id, user_name = user.user_name, Message = user.Message, trip_cnt = user.trip_cnt))
             Log.e("TAG", "getUserLogin: hihihih", )
             if(user.Message == null){
                 Log.e("TAG", "getUserLogin: 나얌", )
                 _isLogin.postValue(true)
+                _isNew.postValue(0)
             }else{
                 Log.e("TAG", "getUserLogin:제대로 걸렷서!", )
-                _isNew.postValue(true)
+                _isNew.postValue(1)
             }
             Log.e("ㄸ", "getUserLogin: $user", )
         }

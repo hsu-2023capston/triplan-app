@@ -22,14 +22,6 @@
             android:visibility="visible"
             app:layout_constraintGuide_percent="0.6" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:layout_constraintGuide_percent="0.3" />
-
         <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
@@ -45,13 +37,12 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/bg_create_group"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -101,7 +92,7 @@
                 app:layout_constraintGuide_percent="0.85" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tv_jgp_name"
                 style="@style/tv_28_bold_blue300"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,11 +117,12 @@
                 android:hint="그룹 이름"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jgp_name"
                 app:boxBackgroundColor="#CCFFFFFF"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cg_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/blue_300" />
@@ -151,6 +143,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cg_pw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -191,6 +184,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
             <include
+                android:id="@+id/btn_cg_groupImg"
                 layout="@layout/item_group_add"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

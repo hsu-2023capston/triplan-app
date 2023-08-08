@@ -8,7 +8,6 @@
         android:layout_height="match_parent"
         >
 
-
         <include
             android:id="@+id/tb_group_trip_all"
             layout="@layout/toolbar_group"
@@ -22,7 +21,6 @@
             android:id="@+id/rv_group_trip_all"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
             android:paddingHorizontal="8dp"
             android:paddingVertical="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

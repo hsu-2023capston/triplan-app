@@ -1,191 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?><layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.constraintlayout.widget.ConstraintLayout
-    style="@style/tv_16_semibold_black"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="15dp">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textView4"
-        style="@style/tv_24_bold_blue100"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
 
-    <ImageView
-        android:id="@+id/iv_mh_profile"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tv_mh_msg"
-        style="@style/tv_14_semibold_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/mainhome_msg"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_mh_profile"
-        app:layout_constraintStart_toEndOf="@+id/iv_mh_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_mh_profile" />
-
-    <TextView
-        android:id="@+id/tv_mh_groupmsg"
-        style="@style/tv_12_regular_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/mainhome_group"
-        app:layout_constraintStart_toStartOf="@+id/iv_mh_profile"
-        app:layout_constraintTop_toBottomOf="@+id/iv_mh_profile" />
-
-    <TextView
-        android:id="@+id/textView6"
-        style="@style/tv_12_regular_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mainhome_trip_msg1"
-        app:layout_constraintStart_toStartOf="@+id/rv_mh_group"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
-
-    <TextView
-        android:id="@+id/tv_mh_day"
-        style="@style/tv_16_semibold_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/mainhome_trip_day"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView9"
-        style="@style/tv_12_regular_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/mainhome_trip_msg2"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/tv_mh_d"
-        style="@style/tv_16_semibold_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/mainhome_trip_d"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/tv_mh_day_ing"
-        style="@style/tv_16_semibold_blue100"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/common_string"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mh_day"
-        app:layout_constraintStart_toEndOf="@+id/tv_mh_day"
-        app:layout_constraintTop_toTopOf="@+id/tv_mh_day" />
-
-    <TextView
-        android:id="@+id/tv_mh_dday"
-        style="@style/tv_16_semibold_blue100"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/common_string"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mh_d"
-        app:layout_constraintStart_toEndOf="@+id/tv_mh_d"
-        app:layout_constraintTop_toTopOf="@+id/tv_mh_d" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <ImageView
-        android:id="@+id/btn_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_menu" />
-
-    <ImageView
-        android:id="@+id/btn_groupCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
-        app:layout_constraintTop_toTopOf="@+id/btn_menu"
-        app:srcCompat="@drawable/ic_add" />
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/tv_8_regular_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/mainhome_group_create"
-        app:layout_constraintEnd_toEndOf="@+id/btn_groupCreate"
-        app:layout_constraintStart_toStartOf="@+id/btn_groupCreate"
-        app:layout_constraintTop_toTopOf="@+id/btn_groupCreate" />
-
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="그룹"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_mh_groupmsg"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mh_groupmsg">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/tv_24_bold_blue100"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_mh_group"
+        <ImageView
+            android:id="@+id/iv_mh_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_mh_msg"
+            style="@style/tv_14_semibold_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_mh_profile"
+            app:layout_constraintStart_toEndOf="@+id/iv_mh_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_mh_profile"
+            tools:text="@string/mainhome_msg" />
+
+        <TextView
+            android:id="@+id/tv_mh_groupmsg"
+            style="@style/tv_12_regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_mh_profile"
+            app:layout_constraintTop_toBottomOf="@+id/iv_mh_profile"
+            tools:text="@string/mainhome_group" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/tv_12_regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mainhome_trip_msg1"
+            app:layout_constraintStart_toStartOf="@+id/horizontalScrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+
+        <TextView
+            android:id="@+id/tv_mh_day"
+            style="@style/tv_16_semibold_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/mainhome_trip_day"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/tv_12_regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/mainhome_trip_msg2"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/tv_mh_d"
+            style="@style/tv_16_semibold_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/mainhome_trip_d"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/tv_mh_day_ing"
+            style="@style/tv_16_semibold_blue100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_string"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mh_day"
+            app:layout_constraintStart_toEndOf="@+id/tv_mh_day"
+            app:layout_constraintTop_toTopOf="@+id/tv_mh_day" />
+
+        <TextView
+            android:id="@+id/tv_mh_dday"
+            style="@style/tv_16_semibold_blue100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_string"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mh_d"
+            app:layout_constraintStart_toEndOf="@+id/tv_mh_d"
+            app:layout_constraintTop_toTopOf="@+id/tv_mh_d" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu" />
+
+        <ImageView
+            android:id="@+id/btn_groupCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_menu"
+            app:layout_constraintTop_toTopOf="@+id/btn_menu"
+            app:srcCompat="@drawable/ic_add" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/tv_8_regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/mainhome_group_create"
+            app:layout_constraintEnd_toEndOf="@+id/btn_groupCreate"
+            app:layout_constraintStart_toStartOf="@+id/btn_groupCreate"
+            app:layout_constraintTop_toTopOf="@+id/btn_groupCreate" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="그룹"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.tans.horizontalnestedscrollview.HorizontalNestedScrollView
+            android:id="@+id/horizontalScrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mh_groupmsg">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                android:visibility="visible"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:visibility="visible" />
+                android:orientation="horizontal">
 
-            <include
-                android:id="@+id/btnGroupJoin"
-                layout="@layout/item_group_add"
-                android:layout_width="155dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="10dp" />
-        </LinearLayout>
-    </HorizontalScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout></layout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_mh_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnGroupJoin"
+                    app:layout_constraintStart_toEndOf="@+id/btnGroupJoin"
+                    app:layout_constraintTop_toTopOf="@+id/btnGroupJoin"
+                    tools:listitem="@layout/item_group" />
+
+
+                <include
+                    android:id="@+id/btnGroupJoin"
+                    layout="@layout/item_group_add"
+                    android:layout_width="155dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="10dp" />
+
+
+            </LinearLayout>
+        </com.tans.horizontalnestedscrollview.HorizontalNestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

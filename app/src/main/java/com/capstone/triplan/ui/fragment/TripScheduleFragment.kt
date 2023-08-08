@@ -11,7 +11,7 @@ class TripScheduleFragment : BaseFragment<FragmentTripScheduleBinding>(R.layout.
     override fun initView() {
         binding.apply {
             tbTripSchedule.tbTrip.setNavigationOnClickListener{
-                findNavController().popBackStack(R.layout.fragment_trip_home,false)
+                findNavController().navigateUp()
             }
             cvTripSchedule.apply {
                 selectedDate = CalendarDay.today()
