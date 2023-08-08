@@ -52,6 +52,7 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding>(R.layout.fr
                 checkPermission()
             }
         }
+        setObserver()
     }
 
     private fun checkPermission(){
@@ -114,5 +115,14 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding>(R.layout.fr
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
         stream.close()
         return File(cachePath, fileName)
+    }
+
+    private fun setObserver() {
+        createGroupViewModel.message.observe(viewLifecycleOwner){
+            if(it == "성공"){
+                loge("바뀜")
+                findNavController().navigate(R.id.action_createGroupFragment_to_mainHomeFragment)
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.capstone.data.remote.dataSourceImpl
 import com.capstone.data.remote.dataSource.GroupDataSource
 import com.capstone.data.remote.dto.GroupDTO
 import com.capstone.data.remote.dto.GroupNameDTO
+import com.capstone.data.remote.dto.MessageDTO
 import okhttp3.MultipartBody
 import com.capstone.data.remote.dto.UserDTO
 import retrofit2.Retrofit
@@ -20,8 +21,8 @@ class GroupDataSourceImpl @Inject constructor(
         group_pw: String,
         user_id: Int,
         group_path: MultipartBody.Part,
-    ) {
-        retrofit.create(GroupDataSource::class.java).postGroup(group_name,group_pw,user_id,group_path)
+    ):MessageDTO {
+        return retrofit.create(GroupDataSource::class.java).postGroup(group_name,group_pw,user_id,group_path)
     }
 
     override suspend fun getGroupName(group_code: String): GroupNameDTO {

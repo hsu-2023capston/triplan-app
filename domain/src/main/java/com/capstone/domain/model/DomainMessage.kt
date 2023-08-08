@@ -1,6 +1,5 @@
 package com.capstone.domain.model
 
-data class DomainGroupName(
-    val Data: String?,
+data class DomainMessage(
     val Message: String
 )
