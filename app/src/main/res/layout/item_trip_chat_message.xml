@@ -7,7 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:padding="10dp">
+        android:paddingStart="10dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="2dp">
 
         <TextView
             android:id="@+id/tv_mychat_content"
@@ -18,26 +21,30 @@
             android:paddingTop="10dp"
             android:paddingEnd="15dp"
             android:paddingBottom="10dp"
-            tools:text="TextView"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/tv_otherchat_content"
+            style="@style/tv_12_regular_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:background="@drawable/bg_other_chat"
             android:gravity="left"
+            android:includeFontPadding="false"
             android:paddingStart="15dp"
             android:paddingTop="10dp"
             android:paddingEnd="15dp"
             android:paddingBottom="10dp"
             android:text="TextView"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/tv_otherchat_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otherchat_name" />
 
         <TextView
             android:id="@+id/tv_mychat_time"
@@ -57,5 +64,23 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tv_otherchat_content"
             app:layout_constraintStart_toEndOf="@+id/tv_otherchat_content" />
+
+        <ImageView
+            android:id="@+id/iv_otherchat_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_otherchat_name"
+            style="@style/tv_10_regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_otherchat_img"
+            app:layout_constraintTop_toTopOf="@+id/iv_otherchat_img"
+            tools:text="닉네임" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

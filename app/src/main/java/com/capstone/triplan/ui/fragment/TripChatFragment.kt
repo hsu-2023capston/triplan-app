@@ -26,7 +26,10 @@ class TripChatFragment : BaseFragment<FragmentTripChatBinding>(R.layout.fragment
             adapter = ChatAdapter(mainViewModel.user.value!!.user_id!!).apply { setHasStableIds(true) }
             rvTcChat.adapter = adapter
             btnTcSend.setOnClickListener {
-                chatViewModel.sendMessage(ChatMessageEntity(chatViewModel.trip.value?.trip_id,mainViewModel.user.value!!.user_id,"test",etTcMessage.text.toString(),getTime(System.currentTimeMillis())))
+                val user = mainViewModel.user.value
+                chatViewModel.sendMessage(ChatMessageEntity(chatViewModel.trip.value?.trip_id,user!!.user_id,user!!.user_name,user!!.default_id,etTcMessage.text.toString(),getTime(System.currentTimeMillis())))
+//                다른사람 채팅 테스트용
+//                chatViewModel.sendMessage(ChatMessageEntity(chatViewModel.trip.value?.trip_id,71,"집게",3,etTcMessage.text.toString(),getTime(System.currentTimeMillis())))
                 etTcMessage.setText("")
                 loge("전송함")
             }

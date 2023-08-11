@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.capstone.data.remote.dataSource.ChatMessageEntity
 import com.capstone.triplan.databinding.ItemTripChatMessageBinding
+import com.capstone.triplan.di.CommonUtil
+import com.capstone.triplan.di.CommonUtil.setProfileImage
 
 class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
     private var items : List<ChatMessageEntity> = ArrayList()
@@ -35,6 +38,10 @@ class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHo
         fun setContent(message : ChatMessageEntity){
             binding.apply {
                 if(message.uid == user_id){
+                    tvMychatContent.visibility = View.VISIBLE
+                    tvMychatTime.visibility = View.VISIBLE
+                    tvOtherchatContent.visibility = View.GONE
+                    tvMychatTime.visibility=View.GONE
                     tvMychatContent.text = message.content
                     tvMychatTime.text = message.timestamp!!.slice(11..15)
                 }
@@ -43,6 +50,12 @@ class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHo
                     tvMychatTime.visibility = View.GONE
                     tvOtherchatContent.visibility = View.VISIBLE
                     tvOtherchatContent.text = message.content
+                    tvOtherchatName.text = message.name
+                    Glide.with(ivOtherchatImg)
+//                    .load("http://210.119.104.148:12345/image${it.default?.default_path}")
+                        .load(message!!.img?.let { setProfileImage(it) })
+                        .circleCrop()
+                        .into(ivOtherchatImg)
                 }
             }
         }
