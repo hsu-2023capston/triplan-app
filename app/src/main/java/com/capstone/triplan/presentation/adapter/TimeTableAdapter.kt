@@ -17,10 +17,8 @@ class TimeTableAdapter : RecyclerView.Adapter<TimeTableAdapter.TimeTableViewHold
             binding.apply {
                 tvTrpScheduleCount.text = (items.indexOf(timeTable) + 1).toString()
                 tvTrpScheduleTitle.text = timeTable.title
-                val start_time = LocalDateTime.parse(timeTable.start_date, DateTimeFormatter.ISO_DATE_TIME)
-                val end_time = LocalDateTime.parse(timeTable.end_date, DateTimeFormatter.ISO_DATE_TIME)
-                tvTripScheduleStartTime.text = start_time.toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm"))
-                tvTripScheduleEndTime.text = end_time.toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm"))
+                tvTripScheduleStartTime.text = timeTable.start_time
+                tvTripScheduleEndTime.text = timeTable.end_time
             }
         }
     }

@@ -6,5 +6,7 @@ data class DomainTimeTable(
     val title: String,
     val memo: String?,
     val start_date: String,
-    val end_date: String
+    val start_time: String,
+    val end_date: String,
+    val end_time: String
 )

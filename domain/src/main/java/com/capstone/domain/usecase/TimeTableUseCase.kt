@@ -9,13 +9,8 @@ class TimeTableUseCase (private val repository: TimeTableRepository) {
     suspend fun getTripTimeTable(trip_id : Int) : List<DomainTimeTable>?{
         return repository.getTripTimeTable(trip_id)
     }
-    suspend fun getTimeTableDate(trip_id: Int) : List<String>{
-        var date = ArrayList<String>()
-        repository.getTripTimeTable(trip_id)?.forEach {
-            date.add( LocalDateTime.parse(it.start_date, DateTimeFormatter.ISO_DATE_TIME
-            ).toLocalDate().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")))
-        }
-        return date.distinct()
+    suspend fun getTimeTableDate(trip_id: Int) : List<String>? {
+        return repository.getTripTimeTable(trip_id)?.map { it.start_date }?.distinct()
     }
     suspend fun getAllTimeTable(trip_id: Int) : List<DomainTimeTable>?{
         return repository.getAllTimeTable(trip_id)

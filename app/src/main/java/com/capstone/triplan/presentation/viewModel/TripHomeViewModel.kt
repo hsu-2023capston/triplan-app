@@ -50,7 +50,7 @@ class TripHomeViewModel @Inject constructor(
     private fun initDate(trip_id: Int)
     {
         viewModelScope.launch {
-            _date.value = timeTableUseCase.getTimeTableDate(trip_id).get(0)
+            _date.value = timeTableUseCase.getTimeTableDate(trip_id)?.get(0)
         }
     }
 
