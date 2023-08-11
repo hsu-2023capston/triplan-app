@@ -18,14 +18,15 @@ class TripChatFragment : BaseFragment<FragmentTripChatBinding>(R.layout.fragment
     private val chatViewModel: TripChatViewModel by viewModels()
     private val mainViewModel : MainViewModel by activityViewModels()
     private lateinit var  adapter : ChatAdapter
+    private var first = false
 
     override fun initView() {
-        chatViewModel.getMessagesForTrip(1)
+        chatViewModel.trip.value?.trip_id?.let { chatViewModel.getMessagesForTrip(it) }
         binding.apply {
-            adapter = ChatAdapter().apply { setHasStableIds(true) }
+            adapter = ChatAdapter(mainViewModel.user.value!!.user_id!!).apply { setHasStableIds(true) }
             rvTcChat.adapter = adapter
             btnTcSend.setOnClickListener {
-                chatViewModel.sendMessage(ChatMessageEntity(1,mainViewModel.user.value!!.user_id,"test",etTcMessage.text.toString(),getTime(System.currentTimeMillis())))
+                chatViewModel.sendMessage(ChatMessageEntity(chatViewModel.trip.value?.trip_id,mainViewModel.user.value!!.user_id,"test",etTcMessage.text.toString(),getTime(System.currentTimeMillis())))
                 etTcMessage.setText("")
                 loge("전송함")
             }
@@ -37,8 +38,12 @@ class TripChatFragment : BaseFragment<FragmentTripChatBinding>(R.layout.fragment
         chatViewModel.chatLiveData.observe(viewLifecycleOwner){
             adapter.setData(it)
             loge("변화감지${it.value}")
-            binding.rvTcChat.scrollToPosition(adapter.itemCount -1)
+            if(!first){
+                binding.rvTcChat.scrollToPosition(adapter.itemCount -1)
+                first = true
+            }
         }
+
     }
 
 }

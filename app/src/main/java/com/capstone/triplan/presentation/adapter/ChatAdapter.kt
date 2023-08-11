@@ -2,15 +2,20 @@ package com.capstone.triplan.presentation.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.data.remote.dataSource.ChatMessageEntity
 import com.capstone.triplan.databinding.ItemTripChatMessageBinding
 
-class ChatAdapter(): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
     private var items : List<ChatMessageEntity> = ArrayList()
   //  private lateinit var items : MutableLiveData<List<ChatMessageEntity>>
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
     override fun getItemCount(): Int {
         return items.size
@@ -28,8 +33,18 @@ class ChatAdapter(): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
     inner class ChatViewHolder(private val binding: ItemTripChatMessageBinding): RecyclerView.ViewHolder(binding.root){
         fun setContent(message : ChatMessageEntity){
-            binding.tvMychatContent.text = message.content
-            binding.tvMychatTime.text = message.timestamp!!.slice(11..15)
+            binding.apply {
+                if(message.uid == user_id){
+                    tvMychatContent.text = message.content
+                    tvMychatTime.text = message.timestamp!!.slice(11..15)
+                }
+                else{
+                    tvMychatContent.visibility = View.GONE
+                    tvMychatTime.visibility = View.GONE
+                    tvOtherchatContent.visibility = View.VISIBLE
+                    tvOtherchatContent.text = message.content
+                }
+            }
         }
     }
 
@@ -38,7 +53,7 @@ class ChatAdapter(): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
         if (list != null) {
             this.items = list
         }
-        Log.e("TAG", "setData: 잘 받았지용 ${items}", )
+        Log.e("TAG", "setData: 잘 받았지용 ${items}")
         notifyDataSetChanged()
     }
 

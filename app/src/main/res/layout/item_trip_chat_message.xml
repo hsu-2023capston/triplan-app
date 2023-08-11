@@ -9,14 +9,6 @@
         android:layout_margin="10dp"
         android:padding="10dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:layout_constraintGuide_percent="0.7" />
-
         <TextView
             android:id="@+id/tv_mychat_content"
             android:layout_width="wrap_content"
@@ -52,9 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            tools:text="12:30"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mychat_content"
-            app:layout_constraintEnd_toStartOf="@+id/tv_mychat_content" />
+            app:layout_constraintEnd_toStartOf="@+id/tv_mychat_content"
+            tools:text="12:30" />
 
         <TextView
             android:id="@+id/tv_otherchat_time"
