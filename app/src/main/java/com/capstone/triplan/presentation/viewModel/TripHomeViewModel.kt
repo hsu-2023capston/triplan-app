@@ -1,5 +1,6 @@
 package com.capstone.triplan.presentation.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +15,10 @@ import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
+
 @HiltViewModel
 class TripHomeViewModel @Inject constructor(
     private val tripUseCase: TripUseCase,
@@ -26,7 +30,6 @@ class TripHomeViewModel @Inject constructor(
         get() = _trip
 
     private var _timeTable: MutableLiveData<List<DomainTimeTable>> = MutableLiveData()
-
     val timeTable: LiveData<List<DomainTimeTable>>
         get() = _timeTable
 
@@ -34,21 +37,70 @@ class TripHomeViewModel @Inject constructor(
     val tripUser: LiveData<List<DomainUser>>
         get() = _tripUser
 
-    fun getTripUser(trip_id: Int){
+    private var _timeTableDate: MutableLiveData<List<String>> = MutableLiveData()
+    val timeTableDate: LiveData<List<String>>
+        get() = _timeTableDate
+
+    private var _date: MutableLiveData<String> = MutableLiveData()
+    val date: LiveData<String>
+        get() = _date
+
+    private var index = 0
+
+    private fun initDate(trip_id: Int)
+    {
+        viewModelScope.launch {
+            _date.value = timeTableUseCase.getTimeTableDate(trip_id).get(0)
+        }
+    }
+
+    fun addDate()
+    {
+        viewModelScope.launch {
+            if (index < timeTableDate.value?.size!! - 1) {
+                index += 1
+                _date.value = timeTableDate.value?.get(index)
+            }
+        }
+    }
+    fun subDate()
+    {
+        viewModelScope.launch {
+            if (index > 0) {
+                index -= 1
+                _date.value = timeTableDate.value?.get(index)
+            }
+        }
+
+    }
+
+    fun getTripUser(trip_id: Int) {
         viewModelScope.launch {
             _tripUser.value = tripUseCase.getTripMember(trip_id)
         }
     }
 
-    fun getTripTimeTable(trip_id: Int) {
+    private fun getTripTimeTable(trip_id: Int) {
         viewModelScope.launch {
             _timeTable.value = timeTableUseCase.getTripTimeTable(trip_id)
         }
     }
 
+    private fun getTimeTableDate(trip_id: Int) {
+        viewModelScope.launch {
+            _timeTableDate.value = timeTableUseCase.getTimeTableDate(trip_id)
+        }
+    }
+
     init {
         viewModelScope.launch {
-            _trip.value= GsonBuilder().create().fromJson(prefs.trip,DomainTrip::class.java)
+            _trip.value = GsonBuilder().create().fromJson(prefs.trip, DomainTrip::class.java)
+            trip.value?.trip_id?.let {
+                getTripTimeTable(it)
+                getTimeTableDate(it)
+                initDate(it)
+            }
+
         }
     }
 }
