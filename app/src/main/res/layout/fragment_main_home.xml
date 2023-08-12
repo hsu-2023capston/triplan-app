@@ -72,10 +72,9 @@
             style="@style/tv_12_regular_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
             android:text="@string/mainhome_trip_msg2"
             app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_mh_ongoing" />
 
         <TextView
             android:id="@+id/tv_mh_d"
@@ -109,8 +108,11 @@
             app:layout_constraintTop_toTopOf="@+id/tv_mh_d" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
+            android:id="@+id/rv_mh_planned"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -143,21 +145,13 @@
             app:layout_constraintTop_toTopOf="@+id/btn_groupCreate" />
 
         <Button
-            android:id="@+id/btn_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="그룹"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.tans.horizontalnestedscrollview.HorizontalNestedScrollView
             android:id="@+id/horizontalScrollView2"
@@ -178,9 +172,10 @@
                     android:id="@+id/rv_mh_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:nestedScrollingEnabled="false"
-                    android:orientation="horizontal"
 
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="@+id/btnGroupJoin"
                     app:layout_constraintStart_toEndOf="@+id/btnGroupJoin"
@@ -193,11 +188,21 @@
                     layout="@layout/item_group_add"
                     android:layout_width="155dp"
                     android:layout_height="180dp"
-                    android:layout_marginStart="10dp" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp" />
 
 
             </LinearLayout>
         </com.tans.horizontalnestedscrollview.HorizontalNestedScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_mh_ongoing"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

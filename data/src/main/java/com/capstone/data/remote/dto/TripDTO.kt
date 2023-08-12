@@ -7,6 +7,11 @@ data class TripDTO(
     val Data: List<Trip>
 )
 
+data class ListTripDTO(
+    val Message: String,
+    val Data: List<List<Trip>>
+)
+
 data class Trip(
     val trip_id: Int,
     val trip_name: String,

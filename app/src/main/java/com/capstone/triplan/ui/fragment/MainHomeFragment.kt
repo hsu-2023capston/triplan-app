@@ -4,11 +4,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.capstone.domain.model.DomainTrip
 import com.capstone.triplan.BaseFragment
 import com.capstone.triplan.R
 import com.capstone.triplan.databinding.FragmentMainHomeBinding
 import com.capstone.triplan.di.CommonUtil.setProfileImage
 import com.capstone.triplan.presentation.adapter.GroupAdapter
+import com.capstone.triplan.presentation.adapter.GroupTripAdapter
 import com.capstone.triplan.presentation.presentation.User
 import com.capstone.triplan.presentation.viewModel.MainHomeViewModel
 import com.capstone.triplan.presentation.viewModel.MainViewModel
@@ -27,6 +29,14 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
     private lateinit var auth : FirebaseAuth
     private lateinit var dbRef : DatabaseReference
     private lateinit var groupAdapter: GroupAdapter
+    private val onGoingTripAdapter = GroupTripAdapter{
+        mainHomeViewModel.setTrip(it)
+        findNavController().navigate(R.id.action_mainHomeFragment_to_bottom_navigation)
+    }
+    private val plannedTripAdapter = GroupTripAdapter{
+        mainHomeViewModel.setTrip(it)
+        findNavController().navigate(R.id.action_mainHomeFragment_to_bottom_navigation)
+    }
 
     override fun initView() {
         auth = FirebaseAuth.getInstance()
@@ -36,6 +46,8 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
         setObserver()
         binding.apply {
             btnGroupJoin.tvGroupitemName.text="그룹 참여"
+            rvMhOngoing.adapter = onGoingTripAdapter
+            rvMhPlanned.adapter = plannedTripAdapter
             rvMhGroup.isNestedScrollingEnabled = false
             groupAdapter = GroupAdapter()//.apply { setHasStableIds(true) }
             groupAdapter.onClick = {
@@ -50,10 +62,6 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
 
             btnGroupJoin.itemGroup.setOnClickListener{
                 findNavController().navigate(R.id.action_mainHomeFragment_to_joinGroupFragment)
-            }
-
-            btnTest.setOnClickListener {
-                findNavController().navigate(R.id.action_mainHomeFragment_to_groupHomeFragment)
             }
 
             button3.setOnClickListener {
@@ -104,7 +112,10 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
                 tvMhGroupmsg.text = it.user_name?.let { it1-> String.format(requireContext().getString(R.string.mainhome_group),it.user_name) }
 
             }
-            it.user_id?.let { it1 -> mainHomeViewModel.getGroupList(it1) }
+            it.user_id?.let { it1 ->
+                mainHomeViewModel.getGroupList(it1)
+                mainHomeViewModel.getTripList(it1)
+            }
         }
         mainModel.isNew.observe(viewLifecycleOwner){
             if(it==1) {
@@ -120,6 +131,14 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
             groupAdapter.setData(it)
             //binding.rvMhGroup.minimumWidth = (155*groupAdapter.itemCount)+10
             loge("${groupAdapter.itemCount}")
+        }
+        mainHomeViewModel.plannedTrip.observe(viewLifecycleOwner){
+            plannedTripAdapter.setData(it)
+            loge("플랜드: ${plannedTripAdapter.itemCount}")
+        }
+        mainHomeViewModel.onGoingTripList.observe(viewLifecycleOwner){
+            onGoingTripAdapter.setData(it)
+            loge("온고잉: ${onGoingTripAdapter.itemCount}")
         }
     }
 }

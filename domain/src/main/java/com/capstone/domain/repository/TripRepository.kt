@@ -7,4 +7,5 @@ import com.capstone.domain.model.DomainUser
 interface TripRepository {
     suspend fun getTrip(group_id: Int): List<DomainTrip>
     suspend fun getTripMember(trip_id:Int):List<DomainUser>
+    suspend fun getTripHome(user_id: Int): List<DomainTrip>
 }

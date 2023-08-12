@@ -1,5 +1,6 @@
 package com.capstone.data.remote.dataSource
 
+import com.capstone.data.remote.dto.ListTripDTO
 import com.capstone.data.remote.dto.TripDTO
 import com.capstone.data.remote.dto.UserDTO
 import retrofit2.http.GET
@@ -17,4 +18,10 @@ interface TripDataSource {
         @Query("trip_id")
         trip_id:Int
     ):UserDTO
+
+    @GET("/trip/home")
+    suspend fun getTripHome(
+        @Query("user_id")
+        user_id: Int
+    ): ListTripDTO
 }

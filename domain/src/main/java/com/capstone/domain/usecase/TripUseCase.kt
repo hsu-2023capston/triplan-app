@@ -12,4 +12,8 @@ class TripUseCase(private val repository: TripRepository) {
     suspend fun getTripMember(trip_id:Int):List<DomainUser>{
         return repository.getTripMember(trip_id)
     }
+
+    suspend fun getTripHome(user_id: Int): List<DomainTrip> {
+        return repository.getTripHome(user_id)
+    }
 }

@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_mainHomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainHomeFragment_to_bottom_navigation"
+            app:destination="@id/bottom_navigation" />
 
     </fragment>
     <fragment
