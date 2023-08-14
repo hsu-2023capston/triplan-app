@@ -1,5 +1,6 @@
 package com.capstone.triplan.ui.fragment
 
+import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -132,13 +133,21 @@ class MainHomeFragment : BaseFragment<FragmentMainHomeBinding>(R.layout.fragment
             //binding.rvMhGroup.minimumWidth = (155*groupAdapter.itemCount)+10
             loge("${groupAdapter.itemCount}")
         }
-        mainHomeViewModel.plannedTrip.observe(viewLifecycleOwner){
-            plannedTripAdapter.setData(it)
-            loge("플랜드: ${plannedTripAdapter.itemCount}")
-        }
         mainHomeViewModel.onGoingTripList.observe(viewLifecycleOwner){
             onGoingTripAdapter.setData(it)
             loge("온고잉: ${onGoingTripAdapter.itemCount}")
+            if(onGoingTripAdapter.itemCount == 0) {
+                binding.tvMhNoOngoing.visibility = View.VISIBLE
+                binding.vMhNoOngoing.visibility = View.VISIBLE
+            }
+        }
+        mainHomeViewModel.plannedTrip.observe(viewLifecycleOwner){
+            plannedTripAdapter.setData(it)
+            loge("플랜드: ${plannedTripAdapter.itemCount}")
+            if(plannedTripAdapter.itemCount == 0) {
+                binding.vMhNoPlanned.visibility = View.VISIBLE
+                binding.tvMhNoPlanned.visibility = View.VISIBLE
+            }
         }
     }
 }
