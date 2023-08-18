@@ -56,8 +56,9 @@
     <string name="delete">삭제</string>
     <!--여행 메인-->
     <string name="participants">참여 인원</string>
-
+    <string name="tripDayCount">Day %d</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

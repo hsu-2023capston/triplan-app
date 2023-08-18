@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:includeFontPadding="false"
-                    android:text="Day 1" />
+                    android:text="@string/tripDayCount" />
 
                 <TextView
                     android:id="@+id/tv_trip_home_date"
@@ -121,8 +121,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:visibility="visible"
             tools:listitem="@layout/item_trip_schedule" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

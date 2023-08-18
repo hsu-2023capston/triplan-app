@@ -39,6 +39,7 @@ class TripUserAdapter : RecyclerView.Adapter<TripUserAdapter.UserViewHolder>() {
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.setItem(items[position])
+        
     }
 
     override fun getItemCount(): Int {
