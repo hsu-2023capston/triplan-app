@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:includeFontPadding="false"
-                    android:text="2023/07/12" />
+                    tools:text="2023/07/12" />
             </LinearLayout>
 
             <ImageButton

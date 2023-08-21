@@ -1,7 +1,6 @@
 package com.capstone.triplan.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.GravityCompat
@@ -21,10 +20,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragment_group_home) {
-    private val viewModel: GroupHomeViewModel by viewModels()
+    private val groupHomeViewModel: GroupHomeViewModel by viewModels()
     private val groupId = 40
     private val groupTripAdapter = GroupTripAdapter { domainTrip ->
-        viewModel.setTrip(domainTrip)
+        groupHomeViewModel.setTrip(domainTrip)
         findNavController().navigate(R.id.action_groupHomeFragment_to_bottomNavigation)
     }
     private val groupMemberAdapter = GroupMemberAdapter()
@@ -33,9 +32,9 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
         binding.apply {
             rvGroupTrip.adapter = groupTripAdapter
             dwGroupHome.rvGroupMember.adapter = groupMemberAdapter
-            viewModel.getTrip(groupId) // TODO: 그룹 아이디 하드 코딩됨
-            viewModel.getGroupMember(groupId)
-            viewModel.trips.observe(viewLifecycleOwner){ trip->
+            groupHomeViewModel.getTrip(groupId) // TODO: 그룹 아이디 하드 코딩됨
+            groupHomeViewModel.getGroupMember(groupId)
+            groupHomeViewModel.trips.observe(viewLifecycleOwner){ trip->
                 tvTripMore.setOnClickListener {
                     findNavController().navigate(GroupHomeFragmentDirections.actionGroupHomeFragmentToGroupTripAllFragment(trip.toTypedArray()))
                 }
@@ -61,14 +60,14 @@ class GroupHomeFragment : BaseFragment<FragmentGroupHomeBinding>(R.layout.fragme
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.trips.observe(viewLifecycleOwner)
+        groupHomeViewModel.trips.observe(viewLifecycleOwner)
         {
             if (it.size >= 3)
                 groupTripAdapter.setData(it.slice(0..2))
             else
                 groupTripAdapter.setData(it)
         }
-        viewModel.groupUsers.observe(viewLifecycleOwner)
+        groupHomeViewModel.groupUsers.observe(viewLifecycleOwner)
         {
             groupMemberAdapter.setData(it)
         }

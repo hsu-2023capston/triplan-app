@@ -1,6 +1,6 @@
 package com.capstone.triplan.presentation.viewModel
 
-import android.util.Log
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,9 +13,8 @@ import com.capstone.domain.usecase.TimeTableUseCase
 import com.capstone.domain.usecase.TripUseCase
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
@@ -79,11 +78,12 @@ class TripHomeViewModel @Inject constructor(
 //        }
 //    }
 
-    fun getSharedPreference() {
+    private fun getSharedPreference() {
         viewModelScope.launch {
             _trip.value = GsonBuilder().create().fromJson(prefs.trip, DomainTrip::class.java)
         }
     }
+
 
     //푸) 이 뷰모델이 처음 생성됐을 때 호출하는것보다 이 기능을 쓰는 Fragment에서 oncreate 타이밍때 함수 호출시키는게 어떨까?
     // 속도는 비슷할것같은데 더 알아보기 쉬울지도
