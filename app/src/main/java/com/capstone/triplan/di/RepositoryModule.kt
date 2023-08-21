@@ -1,6 +1,7 @@
 package com.capstone.triplan.di
 
 import com.capstone.data.remote.dataSource.GroupDataSource
+import com.capstone.data.remote.dataSource.MemoDataSource
 import com.capstone.data.remote.dataSource.TimeTableDataSource
 import com.capstone.data.remote.dataSource.UserDataSource
 import com.capstone.data.repositoryImpl.GroupRepositoryImpl
@@ -8,8 +9,10 @@ import com.capstone.data.repositoryImpl.UserRepositoryImpl
 import com.capstone.domain.repository.GroupRepository
 import com.capstone.domain.repository.UserRepository
 import com.capstone.data.remote.dataSource.TripDataSource
+import com.capstone.data.repositoryImpl.MemoRepositoryImpl
 import com.capstone.data.repositoryImpl.TimeTableRepositoryImpl
 import com.capstone.data.repositoryImpl.TripRepositoryImpl
+import com.capstone.domain.repository.MemoRepository
 import com.capstone.domain.repository.TimeTableRepository
 import com.capstone.domain.repository.TripRepository
 import dagger.Module
@@ -49,6 +52,14 @@ object RepositoryModule {
         api: TimeTableDataSource
     ): TimeTableRepository {
         return TimeTableRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMemoRepository(
+        api: MemoDataSource
+    ): MemoRepository{
+        return MemoRepositoryImpl(api)
     }
 
 }

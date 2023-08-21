@@ -1,11 +1,13 @@
 package com.capstone.triplan.di
 
 import com.capstone.domain.repository.GroupRepository
+import com.capstone.domain.repository.MemoRepository
 import com.capstone.domain.repository.TimeTableRepository
 import com.capstone.domain.repository.UserRepository
 import com.capstone.domain.usecase.GroupUseCase
 import com.capstone.domain.usecase.UserUseCase
 import com.capstone.domain.repository.TripRepository
+import com.capstone.domain.usecase.MemoUseCase
 import com.capstone.domain.usecase.TimeTableUseCase
 import com.capstone.domain.usecase.TripUseCase
 import dagger.Module
@@ -37,5 +39,11 @@ object UseCaseModule {
     @Singleton
     fun provideTimeTableUseCase(repository: TimeTableRepository): TimeTableUseCase {
         return TimeTableUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMemoUseCase(repository: MemoRepository): MemoUseCase{
+        return MemoUseCase(repository)
     }
 }

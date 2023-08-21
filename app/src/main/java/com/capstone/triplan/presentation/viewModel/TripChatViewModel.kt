@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.capstone.data.Prefs
 import com.capstone.data.remote.dataSource.ChatMessageEntity
 import com.capstone.domain.model.DomainTrip
+import com.capstone.domain.usecase.MemoUseCase
 import com.google.firebase.database.*
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TripChatViewModel @Inject constructor(
-    private val prefs: Prefs
+    private val prefs: Prefs,
+    private val memoUseCase: MemoUseCase
 ): ViewModel() {
     private var _trip: MutableLiveData<DomainTrip> = MutableLiveData()
     val trip: LiveData<DomainTrip>
@@ -63,6 +65,12 @@ class TripChatViewModel @Inject constructor(
             }
         })
         return messagesLiveData
+    }
+
+    fun postUrl(userId: Int, content: String){
+        viewModelScope.launch {
+            trip.value?.let { memoUseCase.postUrl(it.trip_id,userId,content) }
+        }
     }
 
 }

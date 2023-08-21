@@ -1,20 +1,28 @@
 package com.capstone.triplan.presentation.adapter
 
+import android.content.Intent
+import android.net.Uri
+import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.capstone.data.remote.dataSource.ChatMessageEntity
+import com.capstone.domain.model.DomainGroup
 import com.capstone.triplan.databinding.ItemTripChatMessageBinding
 import com.capstone.triplan.di.CommonUtil
+import com.capstone.triplan.di.CommonUtil.createHyperlink
+import com.capstone.triplan.di.CommonUtil.isURL
 import com.capstone.triplan.di.CommonUtil.setProfileImage
 
 class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
     private var items : List<ChatMessageEntity> = ArrayList()
-  //  private lateinit var items : MutableLiveData<List<ChatMessageEntity>>
+    lateinit var onClick: (ChatMessageEntity) -> Unit
+    //  private lateinit var items : MutableLiveData<List<ChatMessageEntity>>
 
     override fun getItemViewType(position: Int): Int {
         return position
@@ -26,6 +34,11 @@ class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHo
 
     override fun onBindViewHolder(holder: ChatAdapter.ChatViewHolder, position: Int) {
         holder.setContent(items[position])
+        if(items[position].content?.let { isURL(it) } == true){
+            holder.itemView.setOnClickListener {
+                onClick(items[position])
+            }
+        }
 
     }
 
@@ -42,7 +55,10 @@ class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHo
                     tvMychatTime.visibility = View.VISIBLE
                     tvOtherchatContent.visibility = View.GONE
                     tvMychatTime.visibility=View.GONE
-                    tvMychatContent.text = message.content
+                    if(isURL(message.content!!))
+                        tvMychatContent.text = Html.fromHtml(createHyperlink(message.content!!),Html.FROM_HTML_MODE_COMPACT)
+                    else
+                        tvMychatContent.text = message.content
                     tvMychatTime.text = message.timestamp!!.slice(11..15)
                 }
                 else{
@@ -71,3 +87,4 @@ class ChatAdapter(val user_id: Int): RecyclerView.Adapter<ChatAdapter.ChatViewHo
     }
 
 }
+
