@@ -18,12 +18,21 @@
         <ImageView
             android:id="@+id/iv_trip_home"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tb_trip_home"
+            app:layout_constraintBottom_toTopOf="@id/guideline15"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintGuide_percent="0.32" />
 
         <TextView
             android:id="@+id/textView18"
@@ -31,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:includeFontPadding="false"
             android:text="@string/participants"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             android:paddingTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:includeFontPadding="false"
-                    android:text="Day 1" />
+                    android:text="@string/tripDayCount" />
 
                 <TextView
                     android:id="@+id/tv_trip_home_date"
@@ -90,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:includeFontPadding="false"
-                    android:text="2023/07/12" />
+                    tools:text="2023/07/12" />
             </LinearLayout>
 
             <ImageButton
@@ -112,8 +121,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:visibility="visible"
             tools:listitem="@layout/item_trip_schedule" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
