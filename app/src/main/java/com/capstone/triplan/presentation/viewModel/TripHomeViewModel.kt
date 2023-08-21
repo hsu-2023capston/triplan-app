@@ -28,14 +28,14 @@ class TripHomeViewModel @Inject constructor(
     val trip: LiveData<DomainTrip> // getter 함수 느낌, 변수 x -> 변화를 감지 애서 _trip의 value를 리턴, 가져오는 함수
         get() = _trip
 
+    private var _tripUser: MutableLiveData<List<DomainUser>> = MutableLiveData()
+    val tripUser: LiveData<List<DomainUser>>
+        get() = _tripUser
+
     private var _timeTable: MutableLiveData<List<Pair<String, List<DomainTimeTable>>>?> =
         MutableLiveData()
     val timeTable: LiveData<List<Pair<String, List<DomainTimeTable>>>?>
         get() = _timeTable
-
-    private var _tripUser: MutableLiveData<List<DomainUser>> = MutableLiveData()
-    val tripUser: LiveData<List<DomainUser>>
-        get() = _tripUser
 
     private var _timeTableDate: MutableLiveData<List<String>> = MutableLiveData()
     val timeTableDate: LiveData<List<String>>

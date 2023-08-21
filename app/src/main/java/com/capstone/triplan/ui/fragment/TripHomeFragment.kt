@@ -80,18 +80,22 @@ class TripHomeFragment : BaseFragment<FragmentTripHomeBinding>(R.layout.fragment
             }
             viewModel.tripUser.observe(viewLifecycleOwner) {
                 if (it.isNotEmpty())
-                tripUserAdapter.setData(it)
+                    tripUserAdapter.setData(it)
             }
-            viewModel. timeTableDate.observe(viewLifecycleOwner) {
-                if(it.isNotEmpty())
-                tvTripHomeDate.text = it[index]
+            viewModel.timeTableDate.observe(viewLifecycleOwner) {
+                if (it.isNotEmpty())
+                    tvTripHomeDate.text = it[index]
             }
             viewModel.timeTable.observe(viewLifecycleOwner) {
                 if (it != null) {
                     if (it.isNotEmpty())
                         timeTableAdapter.setData(it[index].second)
-                    else{
-                        Toast.makeText(this@TripHomeFragment.context, "일정이 없습니다", Toast.LENGTH_SHORT).show()
+                    else {
+                        Toast.makeText(
+                            this@TripHomeFragment.context,
+                            "일정이 없습니다",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
