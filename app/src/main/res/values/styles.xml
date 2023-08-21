@@ -173,5 +173,7 @@
         <item name="iconPadding">16dp</item>
     </style>
 
-
+    <style name="CustomChipText" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name = "android:textColor"> @color/category_text</item>
+    </style>
 </resources>

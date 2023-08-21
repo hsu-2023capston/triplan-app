@@ -1,15 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><layout xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?><layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.TripArchiveFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/hi"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="archive" />
+        android:layout_height="match_parent" >
 
-</FrameLayout></layout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ta_memo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_ta_category"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:chipSpacingHorizontal="15dp"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip6"
+                    style="@style/CustomChipText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_all"
+                    android:visibility="visible" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_ta_accommodation"
+                    style="@style/CustomChipText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_accommodation"
+                    android:textColor="@color/category_text"
+                    android:visibility="visible"
+                    app:chipBackgroundColor="@color/category_accommodation_background"
+                    app:chipStrokeColor="@color/category_accommodation_stroke"
+                    app:chipStrokeWidth="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_ta_restaurant"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_restaurant"
+                    android:textColor="@color/category_text"
+                    android:visibility="visible"
+                    app:chipBackgroundColor="@color/category_restaurant_background"
+                    app:chipStrokeColor="@color/category_restaurant_stroke"
+                    app:chipStrokeWidth="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_ta_cafe"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_cafe"
+                    android:textColor="@color/category_text"
+                    android:visibility="visible"
+                    app:chipBackgroundColor="@color/category_cafe_background"
+                    app:chipStrokeColor="@color/category_cafe_stroke"
+                    app:chipStrokeWidth="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_ta_place"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_place"
+                    android:textColor="@color/category_text"
+                    android:visibility="visible"
+                    app:chipBackgroundColor="@color/category_place_background"
+                    app:chipStrokeColor="@color/category_place_stroke"
+                    app:chipStrokeWidth="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_ta_etc"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_etc"
+                    android:textColor="@color/category_text"
+                    android:visibility="visible"
+                    app:chipBackgroundColor="@color/category_etc_background"
+                    app:chipStrokeColor="@color/category_etc_stroke"
+                    app:chipStrokeWidth="2dp" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout></layout>

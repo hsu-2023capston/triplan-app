@@ -17,4 +17,10 @@
     <color name="blue_200_blur">#79087FCB</color>
     <color name="gray_blur">#798F8F8F</color>
 
+    <color name="category_accommodation">#FF5DB846</color>
+    <color name="category_restaurant">#FFFF8282</color>
+    <color name="category_cafe">#FFDD8F33</color>
+    <color name="category_place">#FFE7B919</color>
+    <color name="category_etc">#2C2F35</color>
+
 </resources>

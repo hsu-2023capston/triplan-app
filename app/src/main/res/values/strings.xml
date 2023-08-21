@@ -3,6 +3,15 @@
     <string name="app_name">Triplan</string>
     <string name="common_string">%s</string>
 
+    <!-- 카테고리 -->
+    <string name="category_all">전체</string>
+    <string name="category_accommodation">숙소</string>
+    <string name="category_restaurant">맛집</string>
+    <string name="category_cafe">카페</string>
+    <string name="category_place">가볼 곳</string>
+    <string name="category_etc">기타</string>
+
+
     <!-- 초기 설정-->
     <string name="initial_setting_text_msg">여행을 떠나기전,\nTriplan과 함께해요!</string>
     <string name="initial_setting_text_name">우선, 이용자님의 멋진 이름을 지어주세요</string>
