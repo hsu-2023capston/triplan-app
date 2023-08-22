@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.fragment_group_trip_all) {
     private val viewModel : GroupTripAllViewModel by viewModels()
-    private val args by navArgs<GroupTripAllFragmentArgs>()
+    private val args : GroupTripAllFragmentArgs by navArgs()
     private val adapter = GroupTripAdapter { domainTrip ->
         viewModel.setTrip(domainTrip)
         findNavController().navigate(R.id.action_groupTripAllFragment_to_bottom_navigation)
@@ -26,11 +26,8 @@ class GroupTripAllFragment : BaseFragment<FragmentGroupTripAllBinding>(R.layout.
                 findNavController().popBackStack()
             }
             rvGroupTripAll.adapter = adapter
+            adapter.setData(args.trip.toList())
+            tbGroupTripAll.tvTripTitle.text = args.group.group_name
         }
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        adapter.setData(args.trip.toList())
-    }
-
 }
